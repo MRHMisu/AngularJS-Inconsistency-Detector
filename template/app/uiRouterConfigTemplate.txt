@@ -1,0 +1,17 @@
+(function(){
+    var appName = angular.module('appName', ["ui.router"]);
+    appName.config(function ($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise("/");
+        $stateProvider
+            .state('/', {
+                url: "/appName",
+                templateUrl:"views/appName.view.html",
+                controller: 'appNameController',
+                controllerAs:'vm'
+            })
+    });
+})();
+
+
+
+

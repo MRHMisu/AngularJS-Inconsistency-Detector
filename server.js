@@ -1,15 +1,19 @@
-/**
- * Created by MisuBeImp on 7/18/2016.
- */
+var http = require('http');
+var fs = require('fs');
+var url = require('url');
 
 
-(function()
+function getServer()
 {
-    var http = require('http');
-    var fs = require('fs');
-    var url = require('url');
+    var portNumber = process.argv[2];
+    if (portNumber != 'undefined')
+    {
+        createServer(portNumber);
+    }
+}
 
-// Create a server
+    function createServer(portNumber){
+    // Create a server
     http.createServer( function (request, response) {
         // Parse the request containing file name
         var pathname = url.parse(request.url).pathname;
@@ -36,11 +40,13 @@
             // Send the response body
             response.end();
         });
-    }).listen(8081);
+    }).listen(portNumber);
+        // Console will print the message
+        console.log('Server running at localhost:'+portNumber+'/');
+    }
 
-// Console will print the message
-    console.log('Server running at http://127.0.0.1:8081/');
+module.exports.getServer=getServer;
 
-})();
+
 
 

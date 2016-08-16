@@ -1,6 +1,5 @@
 (function () {
     var fileSystem = require('fs');
-    //var appName = "Misu";
     driectoryList = ['controllers', 'services', 'directives', 'i18n', 'style', 'lib', 'images', 'views', 'factory', 'util',];
 
     createApp();
@@ -48,7 +47,7 @@
     }
 
     function writeDataOnControllerFile(appName) {
-        fileSystem.readFile('controllerTemplate.txt', 'utf8', readData);
+        fileSystem.readFile('template/controllerTemplate.txt', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);
@@ -72,7 +71,7 @@
 	
 	function writeDataOnServiceFile(appName)
 	{
-        fileSystem.readFile('serviceTemplate.txt', 'utf8', readData);
+        fileSystem.readFile('template/serviceTemplate.txt', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);
