@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7818b7ce-c186-4f11-a8c5-7afc359ed8f2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/app/indexUIRoute.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/app/ngRouterConfigTemplate.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/app/uiRouterConfigTemplate.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/util/template.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/createapp.js" afterPath="$PROJECT_DIR$/createapp.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/controllerTemplate.txt" afterPath="$PROJECT_DIR$/template/app/controllerTemplate.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/createFileWithWrite.js" afterPath="$PROJECT_DIR$/util/createFileWithWrite.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/openBrowser.js" afterPath="$PROJECT_DIR$/util/openBrowser.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/readMeSourceTreeTest.txt" afterPath="$PROJECT_DIR$/template/app/factoryTemplate.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/runServer.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/serviceTemplate.txt" afterPath="$PROJECT_DIR$/template/app/serviceTemplate.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/takePrintCommandlineArgument.js" afterPath="$PROJECT_DIR$/util/takePrintCommandlineArgument.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/template.txt" afterPath="$PROJECT_DIR$/template/app/indexNgRouteTemplate.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/text.js" afterPath="$PROJECT_DIR$/util/text.js" />
-    </list>
+    <list default="true" id="7818b7ce-c186-4f11-a8c5-7afc359ed8f2" name="Default" comment="" />
     <ignored path="Angular1X_CLI.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -191,6 +176,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="7818b7ce-c186-4f11-a8c5-7afc359ed8f2" name="Default" comment="" />
@@ -199,12 +187,12 @@
       <option name="presentableId" value="Default" />
       <updated>1469121500048</updated>
       <workItem from="1469121501567" duration="1334000" />
-      <workItem from="1471318926118" duration="6743000" />
+      <workItem from="1471318926118" duration="9380000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8077000" />
+    <option name="totallyTimeSpent" value="10714000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -408,10 +396,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/createapp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+        <state relative-caret-position="1054">
+          <caret line="83" column="17" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
           <folding>
             <element signature="e#575#843#0" expanded="false" />
             <element signature="e#887#964#0" expanded="false" />
@@ -421,26 +417,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mainTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fileDownloader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
