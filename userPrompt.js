@@ -1,16 +1,18 @@
 /**
  * Created by MisuBeImp on 8/18/2016.
  */
+
+var chalk = require('chalk');
+var progressBar=require('./projgressBar.js');
 var lineReader = require('readline').createInterface(process.stdin, process.stdout);
-var promptsProperties = ['applicationName', 'version', 'author'];
+var promptsProperties = ['name', 'version', 'description','author','license','github'];
 var index = 0;
-var data = {};
+var package = {};
 
-var applicationProperties=['Application Name','Version','Author'];
-
+var applicationProperties=['Application Name','Version(1.0.0)','Description','Author','License','GitHub Link'];
 
 var getUserInput = function() {
-    lineReader.setPrompt(applicationProperties[index] + '> ');
+    lineReader.setPrompt(chalk.red.bold('>> '+applicationProperties[index] + ': '));
     lineReader.prompt();
     index++;
 };
@@ -18,17 +20,14 @@ var getUserInput = function() {
 getUserInput();
 
 lineReader.on('line', function(line) {
-    data[promptsProperties[index - 1]] = line;
+    package[promptsProperties[index - 1]] = line;
     if(index === promptsProperties.length) {
         return lineReader.close();
     }
     getUserInput();
 }).on('close', function() {
-    if(data[0]=="")
-    {
-        require('fs').writeFileSync('info.json', JSON.stringify(data));
-        console.log('File Saved.');
-        process.exit(0);
-    }
-    console.log("Invalid Input")
+        require('fs').writeFileSync('info.json', JSON.stringify(package));
+        progressBar.startProgressBar();
+        //console.log('File Saved.');
+        //process.exit(0);
 });

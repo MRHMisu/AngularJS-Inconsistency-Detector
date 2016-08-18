@@ -3,19 +3,23 @@
  */
 var ProgressBar = require('progress');
 var chalk = require('chalk');
-//var bar = new ProgressBar(':bar', { total: 20 });
-var timer = setInterval(function () {
-    bar.tick();
-    if (bar.complete) {
-        console.log('Application created successfully\n');
-        clearInterval(timer);
-    }
-}, 100);
+function startProgressBar()
+{
+    var progressBar = new ProgressBar(chalk.red.bold('Creating application [:bar] :percent :etas'), {
+        complete: '=',
+        incomplete: ' ',
+        width:35,
+        total:50
+    });
+    var timer = setInterval(function () {
+        progressBar.tick();
+        if (progressBar.complete) {
+            console.log(chalk.green.bold('Application created successfully\n'));
+            clearInterval(timer);
+        }
+    }, 100);
+
+}
+module.exports.startProgressBar=startProgressBar;
 
 
-var bar = new ProgressBar(chalk.green.bold(' creating application [:bar] :percent :etas'), {
-    complete: '=',
-    incomplete: ' ',
-    width:35,
-    total:50
-});
