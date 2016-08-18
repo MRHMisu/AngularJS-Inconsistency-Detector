@@ -5,11 +5,12 @@ var url = require('url');
 
 function getServer()
 {
-    var portNumber = process.argv[2];
-    if (portNumber != 'undefined')
+    var portNumber =7777;// process.argv[2];
+    /*if (portNumber != 'undefined')
     {
-        createServer(portNumber);
-    }
+     createServer(portNumber);
+    }*/
+    createServer(portNumber);
 }
 
     function createServer(portNumber){

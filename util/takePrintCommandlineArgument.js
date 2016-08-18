@@ -13,6 +13,6 @@
 //console.log(process.argv[1]);
 //console.log(process.argv[2]);
 
-//get file absoulate path  and current directory absoulate path
+//getUserInput file absoulate path  and current directory absoulate path
 console.log(__filename);
 console.log( __dirname);
