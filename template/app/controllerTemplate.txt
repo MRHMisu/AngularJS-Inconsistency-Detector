@@ -4,14 +4,14 @@
         var vm = this;
 
         function init() {
-            vm.mesages = "Hellow World";
+            vm.messages = "Hello World";
             vm.serviceMessage=serviceName.getMessageFromService();
             vm.factoryMessage=factoryName.getMessageFromFactory();
         }
 
         function changeText() {
 
-            vm.mesages = "Welcome to the World";
+            vm.messages = "Welcome to the World";
         }
 
         init();
@@ -20,4 +20,4 @@
     }
     constructor.$inject = ['serviceName','factoryName'];
     angular.module('moduelName').controller('controllerName', constructor);
-})(angular.window);
+})(window.angular);

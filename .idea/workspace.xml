@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7818b7ce-c186-4f11-a8c5-7afc359ed8f2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/createapp.js" afterPath="$PROJECT_DIR$/createapp.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info.json" afterPath="$PROJECT_DIR$/info.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/openBrowser.js" afterPath="$PROJECT_DIR$/openBrowser.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projgressBar.js" afterPath="$PROJECT_DIR$/projgressBar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/userPrompt.js" afterPath="$PROJECT_DIR$/userPrompt.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/app/controllerTemplate.txt" afterPath="$PROJECT_DIR$/template/app/controllerTemplate.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/app/indexUIRoute.txt" afterPath="$PROJECT_DIR$/template/app/indexUIRoute.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/app/ngRouterConfigTemplate.txt" afterPath="$PROJECT_DIR$/template/app/ngRouterConfigTemplate.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/app/serviceTemplate.txt" afterPath="$PROJECT_DIR$/template/app/serviceTemplate.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/app/uiRouterConfigTemplate.txt" afterPath="$PROJECT_DIR$/template/app/uiRouterConfigTemplate.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/util/server.js" />
     </list>
     <ignored path="Angular1X_CLI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,7 +32,45 @@
     <favorites_list name="Angular1X_CLI" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="createapp.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/createapp.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="251" column="36" selection-start-line="251" selection-start-column="36" selection-end-line="251" selection-end-column="36" />
+              <folding>
+                <element signature="e#1022#1359#0" expanded="false" />
+                <element signature="e#1791#2894#0" expanded="false" />
+                <element signature="e#2940#3789#0" expanded="false" />
+                <element signature="e#3847#4645#0" expanded="false" />
+                <element signature="e#5709#6473#0" expanded="false" />
+                <element signature="e#6524#7035#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template/app/server.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="14" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="openBrowser.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/openBrowser.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -41,7 +85,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/createapp.js" />
         <option value="$PROJECT_DIR$/template/uiRouterTemplate.txt" />
         <option value="$PROJECT_DIR$/template/indexAngular.txt" />
         <option value="$PROJECT_DIR$/template/angularRouterTemplate.txt" />
@@ -55,8 +98,16 @@
         <option value="$PROJECT_DIR$/info.json" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/openBrowser.js" />
-        <option value="$PROJECT_DIR$/projgressBar.js" />
         <option value="$PROJECT_DIR$/userPrompt.js" />
+        <option value="$PROJECT_DIR$/projgressBar.js" />
+        <option value="$PROJECT_DIR$/template/app/viewTemplate.txt" />
+        <option value="$PROJECT_DIR$/template/app/indexUIRoute.txt" />
+        <option value="$PROJECT_DIR$/template/app/ngRouterConfigTemplate.txt" />
+        <option value="$PROJECT_DIR$/template/app/uiRouterConfigTemplate.txt" />
+        <option value="$PROJECT_DIR$/template/app/controllerTemplate.txt" />
+        <option value="$PROJECT_DIR$/template/app/serviceTemplate.txt" />
+        <option value="$PROJECT_DIR$/template/app/server.txt" />
+        <option value="$PROJECT_DIR$/createapp.js" />
       </list>
     </option>
   </component>
@@ -100,7 +151,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -120,8 +170,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Angular1X_CLI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Angular1X_CLI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -134,7 +199,11 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Semester Final\8th Semester Final\801-Spftware Project or Papper\Implementation Work\Angular1X_CLI\template\library" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Semester Final\8th Semester Final\801-Spftware Project or Papper\Implementation Work\Angular1X_CLI\util" />
       <recent name="E:\8thsemester\801-Spftware Project or Papper\Implementation Work\Angular1X_CLI\template\app" />
       <recent name="E:\8thsemester\801-Spftware Project or Papper\Implementation Work\Angular1X_CLI" />
       <recent name="E:\8thsemester\801-Spftware Project or Papper\Implementation Work\Angular1X_CLI\util" />
@@ -214,17 +283,18 @@
       <workItem from="1471500389306" duration="94000" />
       <workItem from="1471508068337" duration="5525000" />
       <workItem from="1471544168662" duration="3025000" />
+      <workItem from="1471633775511" duration="12171000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19358000" />
+    <option name="totallyTimeSpent" value="31529000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17789166" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19399707" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -282,54 +352,17 @@
     <entry file="file://$PROJECT_DIR$/util/text.js" />
     <entry file="file://$PROJECT_DIR$/util/createFileWithWrite.js" />
     <entry file="file://$PROJECT_DIR$/util/openBrowser.js" />
-    <entry file="file://$PROJECT_DIR$/template/app/factoryTemplate.txt" />
     <entry file="file://$PROJECT_DIR$/template/app/indexNgRouteTemplate.txt" />
-    <entry file="file://$PROJECT_DIR$/template/app/indexUIRoute.txt" />
-    <entry file="file://$PROJECT_DIR$/template/app/ngRouterConfigTemplate.txt" />
-    <entry file="file://$PROJECT_DIR$/template/app/serviceTemplate.txt" />
-    <entry file="file://$PROJECT_DIR$/template/app/uiRouterConfigTemplate.txt" />
     <entry file="file://$PROJECT_DIR$/template/modules/services.txt" />
     <entry file="file://$PROJECT_DIR$/template/modules/factory.txt" />
     <entry file="file://$PROJECT_DIR$/template/modules/view.txt" />
     <entry file="file://$PROJECT_DIR$/template/modules/directive.txt" />
     <entry file="file://$PROJECT_DIR$/template/modules/controller.txt" />
-    <entry file="file://$PROJECT_DIR$/template/app/controllerTemplate.txt" />
-    <entry file="file://$PROJECT_DIR$/createapp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fileDownloader.js" />
     <entry file="file://$PROJECT_DIR$/chalkAPI.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/colors/examples/normal-usage.js" />
     <entry file="file://$PROJECT_DIR$/index.html" />
-    <entry file="file://$PROJECT_DIR$/openBrowser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/opener/opener.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-393">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/commandLineColor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -341,15 +374,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="48" selection-start-line="0" selection-start-column="48" selection-end-line="0" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projgressBar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -361,11 +385,138 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/commandLineColor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projgressBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/userPrompt.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/app/factoryTemplate.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/library/angular-ui-router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/app/ngRouterConfigTemplate.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/app/serviceTemplate.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/app/indexUIRoute.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/app/uiRouterConfigTemplate.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/app/viewTemplate.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/app/controllerTemplate.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/app/server.bat.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/app/server.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/openBrowser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createapp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="251" column="36" selection-start-line="251" selection-start-column="36" selection-end-line="251" selection-end-column="36" />
+          <folding>
+            <element signature="e#1022#1359#0" expanded="false" />
+            <element signature="e#1791#2894#0" expanded="false" />
+            <element signature="e#2940#3789#0" expanded="false" />
+            <element signature="e#3847#4645#0" expanded="false" />
+            <element signature="e#5709#6473#0" expanded="false" />
+            <element signature="e#6524#7035#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

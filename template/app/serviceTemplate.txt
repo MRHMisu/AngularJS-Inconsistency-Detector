@@ -17,4 +17,4 @@
     }
     constructor.$inject = [];
     angular.module('moduelName').service('serviceName',constructor);
-})(angular.window);
+})(window.angular);

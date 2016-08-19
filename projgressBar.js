@@ -2,10 +2,12 @@
  * Created by MisuBeImp on 8/18/2016.
  */
 var ProgressBar = require('progress');
-var chalk = require('chalk');
+var colors = require('colors');
+
 function startProgressBar()
 {
-    var progressBar = new ProgressBar(chalk.red.bold('Creating application [:bar] :percent :etas'), {
+    var stringColour='Creating application [:bar] :percent :etas'.blue.bold;
+    var progressBar = new ProgressBar(stringColour, {
         complete: '=',
         incomplete: ' ',
         width:35,
@@ -14,7 +16,7 @@ function startProgressBar()
     var timer = setInterval(function () {
         progressBar.tick();
         if (progressBar.complete) {
-            console.log(chalk.green.bold('Application created successfully\n'));
+            console.log('Application created successfully\n'.green.bold);
             clearInterval(timer);
         }
     }, 100);

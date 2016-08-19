@@ -3,7 +3,7 @@
  */
 
 
-var server=require('./server.js');
+var server=require('./util/server.js');
 server.getServer();
 var opener = require('opener');
 opener('http://localhost:7777');

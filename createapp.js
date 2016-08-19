@@ -19,7 +19,7 @@
 
     function createConfigFiles(appName) {
         fileSystem.writeFile(__dirname + '/' + appName + '/' + appName + '.config' + '.js', 'nothing', 'utf8', writeDataOnConfigFile);
-        fileSystem.writeFile(__dirname + '/' + appName + '/' + appName + '.html', 'nothing', 'utf8', writeDataOnConfigFile);
+        fileSystem.writeFile(__dirname + '/' + appName + '/' +'index.html', 'nothing', 'utf8', writeDataOnConfigFile);
 
     }
 
@@ -44,10 +44,16 @@
     function createFileForDifferentModules(appName) {
         writeDataOnControllerFile(appName);
         writeDataOnServiceFile(appName);
+        writeDataOnConfigurationFile(appName);
+        putLibraryFile(appName);
+        writeDataOnIndexFile(appName);
+        writeDataOnPartialView(appName);
+        writeServerFile(appName);
+        runServerAndOpenBrowser(appName);
     }
 
     function writeDataOnControllerFile(appName) {
-        fileSystem.readFile('template/controllerTemplate.txt', 'utf8', readData);
+        fileSystem.readFile('template/app/controllerTemplate.txt', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);
@@ -62,7 +68,7 @@
 
             function getUpdateData(data, appName) {
                 appName = appName.toLowerCase();
-                var updatedList = data.replace('moduelName', appName).replace('controllerName', appName + 'Controller').replace('serviceName', appName + 'Service').replace('factoryName', appName + 'Factory');
+                var updatedList = data.replace(/moduelName/g, appName).replace(/controllerName/g, appName + 'Controller').replace(/serviceName/g, appName + 'Service').replace(/factoryName/g, appName + 'Factory');
                 updatedList = updatedList.replace("['serviceName','factoryName']", '[' + appName + 'Service' + ',' + appName + 'Factory' + ']');
                 return updatedList;
             }
@@ -71,7 +77,7 @@
 	
 	function writeDataOnServiceFile(appName)
 	{
-        fileSystem.readFile('template/serviceTemplate.txt', 'utf8', readData);
+        fileSystem.readFile('template/app/serviceTemplate.txt', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);
@@ -94,18 +100,174 @@
 	}
 
 
+    function writeDataOnConfigurationFile(appName)
+    {
+        fileSystem.readFile('template/app/uiRouterConfigTemplate.txt', 'utf8', readData);
+        function readData(error, data) {
+            if (error) {
+                return console.log(error);
+            }
+            var updatedDate = getUpdateData(data, appName);
+            fileSystem.writeFile(__dirname + '/' + appName + '/'+ appName.toLowerCase() + '.config.js', updatedDate, 'utf8', writeData);
+            function writeData(error) {
+                if (error) {
+                    return console.log(error);
+                }
+            }
+
+            function getUpdateData(data, appName) {
+                appName = appName.toLowerCase();
+                var updatedList = data.replace(/appName/g, appName);
+                return updatedList;
+            }
+        }
+
+
+    }
+    function putLibraryFile(appName)
+    {
+
+        fileSystem.readFile('template/library/angular.min.js', 'utf8', readData);
+        function readData(error, data) {
+            if (error) {
+                return console.log(error);
+            }
+            fileSystem.writeFile(__dirname + '/' + appName + '/lib/'+'angular.min.js', data, 'utf8', writeData);
+            function writeData(error) {
+                if (error) {
+                    return console.log(error);
+                }
+            }
+        }
+        fileSystem.readFile('template/library/angular-ui-router.js', 'utf8', readData);
+        function readData(error, data) {
+            if (error) {
+                return console.log(error);
+            }
+            fileSystem.writeFile(__dirname + '/' + appName + '/lib/'+'angular-ui-router.js', data, 'utf8', writeData);
+            function writeData(error) {
+                if (error) {
+                    return console.log(error);
+                }
+            }
+        }
+
+    }
+
+    function writeDataOnIndexFile(appName)
+    {
+
+        fileSystem.readFile('template/app/indexUIRoute.txt', 'utf8', readData);
+        function readData(error, data) {
+            if (error) {
+                return console.log(error);
+            }
+            var updatedDate = getUpdateData(data, appName);
+            fileSystem.writeFile(__dirname + '/' + appName + '/'+ 'index.html', updatedDate, 'utf8', writeData);
+            function writeData(error) {
+                if (error) {
+                    return console.log(error);
+                }
+            }
+
+            function getUpdateData(data, appName) {
+                appName = appName.toLowerCase();
+                var updatedList = data.replace(/appName/g, appName);
+                return updatedList;
+            }
+        }
+
+    }
+
+    function writeDataOnPartialView(appName)
+    {
+        fileSystem.readFile('template/app/viewTemplate.txt', 'utf8', readData);
+        function readData(error, data) {
+            if (error) {
+                return console.log(error);
+            }
+            fileSystem.writeFile(__dirname + '/' + appName + '/' + 'views/' + appName.toLowerCase() + '.view.html', data, 'utf8', writeData);
+            function writeData(error) {
+                if (error) {
+                    return console.log(error);
+                }
+            }
+        }
+
+    }
+
+    function writeServerFile(appName)
+    {
+
+        fileSystem.readFile('template/app/server.txt', 'utf8', readData);
+        function readData(error, data) {
+            if (error) {
+                return console.log(error);
+            }
+            fileSystem.writeFile(__dirname + '/' + appName+'/'+'server.js', data, 'utf8', writeData);
+            function writeData(error) {
+                if (error) {
+                    return console.log(error);
+                }
+            }
+        }
+    }
+
+
     function writeDataOnFactoryFile()
     {
 
 
 
     }
-    function writeDataOnIndexFile()
+
+    function runServerAndOpenBrowser(appName)
     {
+        var serverPath=__dirname + '/' + appName + '/'+'server.bat';
+        //var child_process = require('child_process');
 
+        /*child_process.exec(serverPath, function(error, stdout, stderr) {
+            console.log(stdout);
+        });*/
 
+       /* var execFile = require('child_process').execFile;
+        execFile(serverPath,[],function(error, stdout, stderr) {
+            // command output is in stdout
+        });*/
 
+       /* var exec = require('child_process').exec;
+        var cmd = serverPath;
+
+        exec(cmd, function(error, stdout, stderr) {
+            // command output is in stdout
+            console.log(stdout);
+        });*/
+
+        /*const execFile = require('child_process').execFile;
+        const child = execFile('cd',[appName], function(error, stdout, stderr){
+                if (error) {
+                    throw error;
+                }
+                console.log(__dirname);
+                console.log(stdout);
+    });*/
+        function run_cmd(cmd, args, callBack ) {
+            var exec = require('child_process').exec;
+            var child = exec(cmd, args);
+            var resp = "";
+
+            child.stdout.on('data', function (buffer) { resp += buffer.toString() });
+            child.stdout.on('end', function() { callBack (resp) });
+        }
+
+        run_cmd(appName+"/server.bat", [], function(text) { console.log (text) })
+        console.log(__dirname);
+
+        var opener = require('opener');
+        opener("http://localhost:7777/index.html#/home");
     }
+
+
 
 })();
 
