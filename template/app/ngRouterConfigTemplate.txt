@@ -1,4 +1,6 @@
-
+(function(angular)
+{
+    'use strict';
     angular.module('appName', ['ngRoute']);
     angular.module('appName').config(function ($routeProvider) {
         $routeProvider.when('/', {
@@ -8,4 +10,6 @@
         });
         $routeProvider.otherwise({ redirectTo: '/' });
     });
-}
+})(window.angular);
+
+

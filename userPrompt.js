@@ -3,13 +3,15 @@
  */
 
 var chalk = require('chalk');
+var figlet = require('figlet');
+
 var progressBar=require('./projgressBar.js');
 var lineReader = require('readline').createInterface(process.stdin, process.stdout);
 var promptsProperties = ['name', 'version', 'description','author','license','github'];
 var index = 0;
 var package = {};
 
-var applicationProperties=['Application Name','Version(1.0.0)','Description','Author','License','GitHub Link'];
+var applicationProperties=['Application Name','Version(1.0.0)','Description','Author','License','Git Repository'];
 
 var getUserInput = function() {
     lineReader.setPrompt(chalk.red.bold('>> '+applicationProperties[index] + ': '));
@@ -17,8 +19,8 @@ var getUserInput = function() {
     index++;
 };
 
+console.log(chalk.blue(figlet.textSync('Fantasia', { horizontalLayout: 'full' })));
 getUserInput();
-
 lineReader.on('line', function(line) {
     package[promptsProperties[index - 1]] = line;
     if(index === promptsProperties.length) {

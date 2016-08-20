@@ -5,29 +5,17 @@
     createApp();
     function createApp() {
         var name = process.argv[2];
-        if (name != 'undefined') {
-
-
+        if (name != 'undefined' ||name != ''|| name !=null ) {
             createDirectoryStructure(name, driectoryList);
-            createConfigFiles(name);
             createFileForDifferentModules(name);
-
+            console.log(name + " Angular application is created successfully");
+        }else
+        {
+            console.log("Application name is not given");
         }
-        console.log(name + " Angular application is created successfully");
-    }
-
-
-    function createConfigFiles(appName) {
-        fileSystem.writeFile(__dirname + '/' + appName + '/' + appName + '.config' + '.js', 'nothing', 'utf8', writeDataOnConfigFile);
-        fileSystem.writeFile(__dirname + '/' + appName + '/' +'index.html', 'nothing', 'utf8', writeDataOnConfigFile);
 
     }
 
-    function writeDataOnConfigFile(error) {
-        if (error) {
-            return console.log(error);
-        }
-    }
 
     function createDirectoryStructure(appName, driectoryList) {
 
@@ -45,7 +33,8 @@
         writeDataOnControllerFile(appName);
         writeDataOnServiceFile(appName);
         writeDataOnConfigurationFile(appName);
-        putLibraryFile(appName);
+        putAngularLibraryFile(appName);
+        putRoutingLibraryFile(appName);
         writeDataOnIndexFile(appName);
         writeDataOnPartialView(appName);
         writeServerFile(appName);
@@ -124,7 +113,7 @@
 
 
     }
-    function putLibraryFile(appName)
+    function putAngularLibraryFile(appName)
     {
 
         fileSystem.readFile('template/library/angular.min.js', 'utf8', readData);
@@ -139,6 +128,12 @@
                 }
             }
         }
+
+
+    }
+
+    function putRoutingLibraryFile(appName)
+    {
         fileSystem.readFile('template/library/angular-ui-router.js', 'utf8', readData);
         function readData(error, data) {
             if (error) {
@@ -153,6 +148,7 @@
         }
 
     }
+
 
     function writeDataOnIndexFile(appName)
     {
@@ -243,15 +239,15 @@
             console.log(stdout);
         });*/
 
-        /*const execFile = require('child_process').execFile;
-        const child = execFile('cd',[appName], function(error, stdout, stderr){
+       /* const execFile = require('child_process').execFile;
+        const child = execFile('http-server',['-d'], function(error, stdout, stderr){
                 if (error) {
                     throw error;
                 }
                 console.log(__dirname);
                 console.log(stdout);
     });*/
-        function run_cmd(cmd, args, callBack ) {
+        /*function run_cmd(cmd, args, callBack ) {
             var exec = require('child_process').exec;
             var child = exec(cmd, args);
             var resp = "";
@@ -262,9 +258,9 @@
 
         run_cmd(appName+"/server.bat", [], function(text) { console.log (text) })
         console.log(__dirname);
-
-        var opener = require('opener');
-        opener("http://localhost:7777/index.html#/home");
+*/
+       /* var opener = require('opener');
+        opener("http://localhost:9090/index.html#/home");*/
     }
 
 
