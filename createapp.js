@@ -42,7 +42,7 @@
     }
 
     function writeDataOnControllerFile(appName) {
-        fileSystem.readFile('template/app/controllerTemplate.txt', 'utf8', readData);
+        fileSystem.readFile('template/app/simple-route-app/controller.txt', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);
@@ -66,7 +66,7 @@
 	
 	function writeDataOnServiceFile(appName)
 	{
-        fileSystem.readFile('template/app/serviceTemplate.txt', 'utf8', readData);
+        fileSystem.readFile('template/app/simple-route-app/service.txt', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);
@@ -91,7 +91,7 @@
 
     function writeDataOnConfigurationFile(appName)
     {
-        fileSystem.readFile('template/app/uiRouterConfigTemplate.txt', 'utf8', readData);
+        fileSystem.readFile('template/app/simple-route-app/ui-route.txt', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);
@@ -153,7 +153,7 @@
     function writeDataOnIndexFile(appName)
     {
 
-        fileSystem.readFile('template/app/indexUIRoute.txt', 'utf8', readData);
+        fileSystem.readFile('template/app/simple-route-app/index-ui-route.txt', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);
@@ -177,7 +177,7 @@
 
     function writeDataOnPartialView(appName)
     {
-        fileSystem.readFile('template/app/viewTemplate.txt', 'utf8', readData);
+        fileSystem.readFile('template/app/simple-route-app/view.txt', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);

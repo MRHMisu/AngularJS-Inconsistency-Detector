@@ -16,5 +16,5 @@
         this.getMessageFromService=getMessageFromService;
     }
     constructor.$inject = [];
-    angular.module('misu').service('misuService',constructor);
+    angular.module('moduelName').service('serviceName',constructor);
 })(window.angular);

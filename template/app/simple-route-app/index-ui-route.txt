@@ -9,16 +9,16 @@
     <!--------->
 
     <!--Main App--->
-         <script src="misu.config.js"></script>
+         <script src="appName.config.js"></script>
     <!---------->
 
     <!--controller-->
-        <script src="controllers/misu.controller.js"></script>
+        <script src="controllers/appName.controller.js"></script>
     <!---------->
 
     <!--Services-->
 
-        <script src="services/misu.service.js"></script>
+        <script src="services/appName.service.js"></script>
     <!---------->
 
     <!--directives-->
@@ -26,7 +26,7 @@
     <!---------->
 
 </head>
-<body ng-app="misu">
+<body ng-app="appName">
 
     <div ui-view></div>
 
