@@ -26,13 +26,21 @@
                 name: 'appChoiceName',
                 message: chalk.yellow.bold('Select application template:'),
                 choices: [chalk.green(enumApplicationTemplate.emptyApp), chalk.green(enumApplicationTemplate.mvcApp), chalk.green(enumApplicationTemplate.restApp)],
-                default: enumApplicationTemplate.emptyApp
+                default: 'Empty MVC Application',//enumApplicationTemplate.emptyApp
+                validate: function (value) {
+                    if (typeof value != undefined) {
+                        return true;
+                    } else {
+                        return chalk.red.bold('Please enter a name of the application');
+                    }
+                }
             }
         ];
         inquirer.prompt(questions).then(function (answers) {
-            console.log(answers.name);
-            //var choice = answers.name;
-            //getChoice(choice);
+
+            var choice = answers.appChoiceName;
+            console.log(choice)
+            getChoice(choice);
 
         });
     }
