@@ -1,12 +1,11 @@
 /**
- * Created by Misu Be Imp on 7/18/2016.
+ * Created by MisuBeImp on 8/18/2016.
  */
 
 
-/*
-*
-* first install opener globally
-*$ npm install opener -g
-*
-* */
+var server=require('./server.js');
+server.getServer();
+var opener = require('opener');
+opener('http://localhost:7777');
+
 
