@@ -17,6 +17,6 @@ server.getServer();
 */
 
 var prompt=require('./main.js');
-prompt.getUserAppChoice();
-//prompt.getSimpleMVCAppConfiguration();
+//prompt.getUserAppChoice();
+prompt.getSimpleMVCAppConfiguration();
 
