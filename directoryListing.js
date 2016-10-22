@@ -11,11 +11,11 @@
  */
 var fs = require('fs');
 
-var folder=__dirname;
+var folder = __dirname;
 console.log(folder);
 
 getFilesRecursive(folder);
-function getFilesRecursive (folder) {
+function getFilesRecursive(folder) {
     var fileContents = fs.readdirSync(folder),
         fileTree = [],
         stats;
@@ -35,12 +35,10 @@ function getFilesRecursive (folder) {
         }
     });
 
-    for(var i=0; i<fileTree.length;i++)
-    {
-        var controllerRegExpression=/(.*).controller.js/g;
-        if(controllerReg.exec(fileTree[i].name))
-        {console.log("OK");
-            var file=fileTree[i].name;
+    for (var i = 0; i < fileTree.length; i++) {
+        var controllerRegExpression = /(.*).controller.js/g;
+        if (controllerRegExpression.exec(fileTree[i].name)) {
+            var file = fileTree[i].name;
             console.log(file);
 
         }

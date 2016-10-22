@@ -9,15 +9,13 @@
     var figlet = require('figlet');
     var inquirer = require('inquirer');
     var argv = require('minimist')(process.argv.slice(2));
-    var enumApplicationTemplate=
+    var enumApplicationTemplate =
     {
-        emptyApp:'Empty MVC Application',
-        mvcApp:'Simple MVC Application',
-        restApp:'Simple REST MVC Application'
+        emptyApp: 'Empty MVC Application',
+        mvcApp: 'Simple MVC Application',
+        restApp: 'Simple REST MVC Application'
     }
-
-
-    function getUserAppChoice(callback) {
+    function getUserAppChoice() {
         clear();
         console.log(chalk.blue.bold(figlet.textSync('Fantasia', {horizontalLayout: 'full'})));
         var questions = [
@@ -29,32 +27,41 @@
                 default: 0,
             }
         ];
-
-       // var choice = enumApplicationTemplate.emptyApp;
         inquirer.prompt(questions).then(function (answers) {
-
             var choice = answers.appChoiceName;
             getChoice(choice);
-
         });
-
     }
 
 
     function getChoice(choice) {
-        console.log(choice);
-        if(choice=='Empty MVC Application')
+
+        var enumApplicationRegExpression =
         {
-            console.log("OK");
+            emptyApp: /Empty MVC Application/g,
+            mvcApp: /Simple MVC Application/g,
+            restApp: /Simple REST MVC Application/g
+        }
+
+        if (enumApplicationRegExpression.emptyApp.exec(choice)) {
+            //console.log("OK-->" + choice);
+            getSimpleMVCAppConfiguration(choice);
+        } else if (enumApplicationRegExpression.mvcApp) {
+            //console.log("OK-->" + choice);
+            getSimpleMVCAppConfiguration(choice);
+        } else if (enumApplicationRegExpression.restApp) {
+            getSimpleMVCAppConfiguration(choice);
+            //console.log("OK-->" + choice);
+
         }
 
     }
 
 
-    function getSimpleMVCAppConfiguration(callback) {
-
+    function getSimpleMVCAppConfiguration(applicationType) {
         clear();
         console.log(chalk.blue.bold(figlet.textSync('Fantasia', {horizontalLayout: 'full'})));
+        console.log(chalk.red.bold('Selected Application type:'+applicationType));
         var questions = [
             {
                 type: 'input',
@@ -104,7 +111,7 @@
                 name: 'routeConfigFile',
                 message: chalk.yellow.bold('Select Dependencies(route):'),
                 choices: [chalk.green('angular-route'), chalk.green('angular-ui-route')],
-                default: 'angular-ui-route'
+                default: 0
             }
         ];
 
@@ -119,12 +126,10 @@
                 routeConfigFile: answers.routeConfigFile
 
             };
-            console.log(answers.routeConfigFile);
         });
     }
 
     module.exports.getUserAppChoice = getUserAppChoice;
-    module.exports.getSimpleMVCAppConfiguration=getSimpleMVCAppConfiguration;
 })();
 
 
