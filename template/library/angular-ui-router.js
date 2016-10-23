@@ -1457,7 +1457,7 @@ function $UrlMatcherFactory() {
    *
    * $stateProvider.state('list', {
    *   url: "/list/{item:listItem}",
-   *   controller: function($scope, $stateParams) {
+   *   controllers: function($scope, $stateParams) {
    *     console.log($stateParams.item);
    *   }
    * });
@@ -1513,7 +1513,7 @@ function $UrlMatcherFactory() {
    *   // ...
    * }).state('users.item', {
    *   url: "/{user:dbObject}",
-   *   controller: function($scope, $stateParams) {
+   *   controllers: function($scope, $stateParams) {
    *     // $stateParams.user will now be an object returned from
    *     // the Users service
    *   },
@@ -2441,10 +2441,10 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *   be a super-set of parent's params.
    * - **views** `{object}` - returns a views object where each key is an absolute view 
    *   name (i.e. "viewName@stateName") and each value is the config object 
-   *   (template, controller) for the view. Even when you don't use the views object 
+   *   (template, controllers) for the view. Even when you don't use the views object 
    *   explicitly on a state config, one is still created for you internally.
    *   So by decorating this builder function you have access to decorating template 
-   *   and controller properties.
+   *   and controllers properties.
    * - **ownParams** `{object}` - returns an array of params that belong to the state, 
    *   not including any params defined by ancestor states.
    * - **path** `{string}` - returns the full path from the root down to this state. 
@@ -2470,8 +2470,8 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *
    * $stateProvider.state('home', {
    *   views: {
-   *     'contact.list': { controller: 'ListController' },
-   *     'contact.item': { controller: 'ItemController' }
+   *     'contact.list': { controllers: 'ListController' },
+   *     'contact.item': { controllers: 'ItemController' }
    *   }
    * });
    *
@@ -2955,7 +2955,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * <pre>
      * var app angular.module('app', ['ui.router']);
      *
-     * app.controller('ctrl', function ($scope, $state) {
+     * app.controllers('ctrl', function ($scope, $state) {
      *   $scope.reload = function(){
      *     $state.reload();
      *   }
@@ -2976,7 +2976,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * //and current state is 'contacts.detail.item'
      * var app angular.module('app', ['ui.router']);
      *
-     * app.controller('ctrl', function ($scope, $state) {
+     * app.controllers('ctrl', function ($scope, $state) {
      *   $scope.reload = function(){
      *     //will reload 'contact.detail' and 'contact.detail.item' states
      *     $state.reload('contact.detail');
@@ -3015,7 +3015,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * <pre>
      * var app = angular.module('app', ['ui.router']);
      *
-     * app.controller('ctrl', function ($scope, $state) {
+     * app.controllers('ctrl', function ($scope, $state) {
      *   $scope.changeState = function () {
      *     $state.go('contact.detail');
      *   };
@@ -3081,7 +3081,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * <pre>
      * var app = angular.module('app', ['ui.router']);
      *
-     * app.controller('ctrl', function ($scope, $state) {
+     * app.controllers('ctrl', function ($scope, $state) {
      *   $scope.changeState = function () {
      *     $state.transitionTo('contact.detail');
      *   };
@@ -3528,7 +3528,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
 
     function resolveState(state, params, paramsAreFiltered, inherited, dst, options) {
       // Make a restricted $stateParams with only the parameters that apply to this state if
-      // necessary. In addition to being available to the controller and onEnter/onExit callbacks,
+      // necessary. In addition to being available to the controllers and onEnter/onExit callbacks,
       // we also need $stateParams to be available for any $injector calls we make during the
       // dependency resolution process.
       var $stateParams = (paramsAreFiltered) ? params : filterByKeys(state.params.$$keys(), params);
@@ -3555,7 +3555,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
           }];
 
           viewsPromises.push($resolve.resolve(injectables, dst.globals, dst.resolve, state).then(function (result) {
-            // References to the controller (only instantiated at link time)
+            // References to the controllers (only instantiated at link time)
             if (isFunction(view.controllerProvider) || isArray(view.controllerProvider)) {
               var injectLocals = angular.extend({}, injectables, dst.globals);
               result.$$controller = $injector.invoke(view.controllerProvider, null, injectLocals);
@@ -3631,7 +3631,7 @@ function $ViewProvider() {
   $get.$inject = ['$rootScope', '$templateFactory'];
   function $get(   $rootScope,   $templateFactory) {
     return {
-      // $view.load('full.viewName', { template: ..., controller: ..., resolve: ..., async: false, params: ... })
+      // $view.load('full.viewName', { template: ..., controllers: ..., resolve: ..., async: false, params: ... })
       /**
        * @ngdoc function
        * @name ui.router.state.$view#load

@@ -9,43 +9,55 @@
  * @param {string} folder Folder location to search through
  * @returns {object} Nested tree of the found files
  */
+
+
+
 var fs = require('fs');
+call();
 
-var folder = __dirname;
-console.log(folder);
+function call() {
+    var folder = __dirname;
+    folder = folder + '/' + 'controllers';
+    var fileTree = getFilesRecursive(folder);
+    console.log(fileTree.length);
+    for (var i = 0; i < fileTree.length; i++) {
+        var controllerRegExpression = /(.*).controller.js/g;
+        if (controllerRegExpression.exec(fileTree[i].fileName)) {
+            var file = fileTree[i].fileName;
+            console.log(file);
 
-getFilesRecursive(folder);
+        }
+
+    }
+}
+
+
 function getFilesRecursive(folder) {
-    var fileContents = fs.readdirSync(folder),
-        fileTree = [],
-        stats;
-
+    var fileContents = fs.readdirSync(folder);
+    var files = [];
+    var fileTree = [];
+    var stats;
     fileContents.forEach(function (fileName) {
         stats = fs.lstatSync(folder + '/' + fileName);
-
         if (stats.isDirectory()) {
             fileTree.push({
                 name: fileName,
                 children: getFilesRecursive(folder + '/' + fileName)
             });
         } else {
-            fileTree.push({
-                name: fileName
-            });
+            fs.readFile(folder + '//' + fileName, 'utf8', readData);
+            function readData(error, data) {
+                if (error) {
+                    return console.log(error);
+                }
+                // console.log("Read OK");
+                //console.log(data);
+                files.push({fileName: fileName,fileContent: data});
+            }
         }
     });
 
-    for (var i = 0; i < fileTree.length; i++) {
-        var controllerRegExpression = /(.*).controller.js/g;
-        if (controllerRegExpression.exec(fileTree[i].name)) {
-            var file = fileTree[i].name;
-            console.log(file);
-
-        }
-
-
-    }
-    //return fileTree;
+    return files;
 
 
 };
