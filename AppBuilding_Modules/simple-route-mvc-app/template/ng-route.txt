@@ -1,0 +1,15 @@
+(function(angular)
+{
+    'use strict';
+    angular.module('appName', ['ngRoute']);
+    angular.module('appName').config(function ($routeProvider) {
+        $routeProvider.when('/', {
+            templateUrl: 'views/appName.view.html',
+            controller: 'appNameController',
+            controllerAs: 'vm'
+        });
+        $routeProvider.otherwise({ redirectTo: '/' });
+    });
+})(window.angular);
+
+

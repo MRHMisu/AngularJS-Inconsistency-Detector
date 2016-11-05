@@ -42,7 +42,7 @@
     }
 
     function writeDataOnControllerFile(appName) {
-        fileSystem.readFile('template/app/simple-route-app/controller.txt', 'utf8', readData);
+        fileSystem.readFile('template/app/simple-route-mvc-app/controller.txt', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);
@@ -66,7 +66,7 @@
 	
 	function writeDataOnServiceFile(appName)
 	{
-        fileSystem.readFile('template/app/simple-route-app/service.txt', 'utf8', readData);
+        fileSystem.readFile('template/app/simple-route-mvc-app/service.txt', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);
@@ -91,7 +91,7 @@
 
     function writeDataOnConfigurationFile(appName)
     {
-        fileSystem.readFile('template/app/simple-route-app/ui-route.txt', 'utf8', readData);
+        fileSystem.readFile('template/app/simple-route-mvc-app/ui-route.txt', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);
@@ -116,7 +116,7 @@
     function putAngularLibraryFile(appName)
     {
 
-        fileSystem.readFile('template/library/angular.min.js', 'utf8', readData);
+        fileSystem.readFile('template/resource/angular.min.js', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);
@@ -134,7 +134,7 @@
 
     function putRoutingLibraryFile(appName)
     {
-        fileSystem.readFile('template/library/angular-ui-router.js', 'utf8', readData);
+        fileSystem.readFile('template/resource/angular-ui-router.js', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);
@@ -153,7 +153,7 @@
     function writeDataOnIndexFile(appName)
     {
 
-        fileSystem.readFile('template/app/simple-route-app/index-ui-route.txt', 'utf8', readData);
+        fileSystem.readFile('template/app/simple-route-mvc-app/index-ui-route.txt', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);
@@ -177,7 +177,7 @@
 
     function writeDataOnPartialView(appName)
     {
-        fileSystem.readFile('template/app/simple-route-app/view.txt', 'utf8', readData);
+        fileSystem.readFile('template/app/simple-route-mvc-app/view.txt', 'utf8', readData);
         function readData(error, data) {
             if (error) {
                 return console.log(error);

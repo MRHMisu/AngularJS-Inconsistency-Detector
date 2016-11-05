@@ -1,9 +1,4 @@
-/**
- * Created by Misu Be Imp on 8/20/2016.
- */
 
-
-(function () {
     var chalk = require('chalk');
     var clear = require('clear');
     var figlet = require('figlet');
@@ -12,7 +7,7 @@
     var enumApplicationTemplate =
     {
         emptyApp: 'Empty MVC Application',
-        mvcApp: 'Simple MVC Application',
+        mvcApp: 'Simple Route MVC Application',
         restApp: 'Simple REST MVC Application'
     }
     function getUserAppChoice() {
@@ -39,18 +34,18 @@
         var enumApplicationRegExpression =
         {
             emptyApp: /Empty MVC Application/g,
-            mvcApp: /Simple MVC Application/g,
+            mvcApp: /Simple Route MVC Application/g,
             restApp: /Simple REST MVC Application/g
         }
 
         if (enumApplicationRegExpression.emptyApp.exec(choice)) {
             //console.log("OK-->" + choice);
-            getSimpleMVCAppConfiguration(choice);
+            getSimpleRouteMVCAppConfiguration(choice);
         } else if (enumApplicationRegExpression.mvcApp) {
             //console.log("OK-->" + choice);
-            getSimpleMVCAppConfiguration(choice);
+            getSimpleRouteMVCAppConfiguration(choice);
         } else if (enumApplicationRegExpression.restApp) {
-            getSimpleMVCAppConfiguration(choice);
+            getSimpleRouteMVCAppConfiguration(choice);
             //console.log("OK-->" + choice);
 
         }
@@ -58,7 +53,7 @@
     }
 
 
-    function getSimpleMVCAppConfiguration(applicationType) {
+    function getSimpleRouteMVCAppConfiguration(applicationType) {
         clear();
         console.log(chalk.blue.bold(figlet.textSync('Fantasia', {horizontalLayout: 'full'})));
         console.log(chalk.red.bold('Selected Application type:'+applicationType));
@@ -130,7 +125,6 @@
     }
 
     module.exports.getUserAppChoice = getUserAppChoice;
-})();
 
 
 
