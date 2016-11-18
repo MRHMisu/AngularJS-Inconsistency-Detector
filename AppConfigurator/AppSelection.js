@@ -5,6 +5,8 @@ var clear = require('clear');
 var figlet = require('figlet');
 var inquirer = require('inquirer');
 var argv = require('minimist')(process.argv.slice(2));
+
+var configurator=require('./AppConfiguration');
 var enumApplicationTemplate =
 {
     emptyApp: 'Empty MVC Application',
@@ -26,8 +28,10 @@ function getUserAppChoice() {
     ];
     inquirer.prompt(questions).then(function (answers) {
         var choice = answers.appChoiceName;
-        getChoice(choice);
+        var selection=getChoice(choice);
+        configurator.getAppQuestion(selection);
     });
+
 }
 
 
@@ -41,15 +45,11 @@ function getChoice(choice) {
     }
 
     if (enumApplicationRegExpression.emptyApp.exec(choice)) {
-        console.log("OK-->" + choice);
-        //getSimpleRouteMVCAppConfiguration(choice);
-    } else if (enumApplicationRegExpression.mvcApp) {
-        console.log("OK-->" + choice);
-        //getSimpleRouteMVCAppConfiguration(choice);
-    } else if (enumApplicationRegExpression.restApp) {
-        //getSimpleRouteMVCAppConfiguration(choice);
-        console.log("OK-->" + choice);
-
+        return {name: 'Empty MVC Application', type: 1};
+    } else if (enumApplicationRegExpression.mvcApp.exec(choice)) {
+        return {name: 'Simple MVC Application', type: 2};
+    } else if (enumApplicationRegExpression.restApp.exec(choice)) {
+        return {name: 'Simple REST MVC Application', type: 3};
     }
 
 }

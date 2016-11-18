@@ -1,0 +1,20 @@
+(function (angular) {
+    'use strict';
+    function constructor() {
+        var factoryMessage;
+        function inti()
+        {
+            factoryMessage="This is from factory message";
+        }
+        function getMessageFromFactory()
+        {
+            return factoryMessage;
+
+        }
+
+        inti();
+        this.getMessageFromFactory=getMessageFromFactory;
+    }
+    constructor.$inject = [];
+    angular.module('moduelName').factory('factoryName',constructor);
+})(window.angular);

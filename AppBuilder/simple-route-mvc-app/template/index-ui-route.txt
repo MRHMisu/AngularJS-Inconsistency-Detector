@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Hello Angular </title>
+
+    <!--Librery--->
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="lib/angular-ui-router.js"></script>
+    <!--------->
+
+    <!--Main App--->
+         <script src="appName.config.js"></script>
+    <!---------->
+
+    <!--controller-->
+        <script src="controllers/appName.controller.js"></script>
+    <!---------->
+
+    <!--Services-->
+
+        <script src="services/appName.service.js"></script>
+    <!---------->
+
+    <!--directives-->
+
+    <!---------->
+
+</head>
+<body ng-app="appName">
+
+    <div ui-view></div>
+
+</body>
+</html>
