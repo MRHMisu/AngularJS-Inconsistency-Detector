@@ -1,0 +1,29 @@
+(function() {
+    'use strict';
+    function constructor(dependency1) {
+        // Usage:
+        //
+        // Creates:
+        //
+        var directive = {
+            bindToController: true,
+            controller: ControllerController,
+            controllerAs: 'vm',
+            link: link,
+            restrict: 'A',
+            scope: {
+            }
+        };
+        return directive;
+
+        function link(scope, element, attrs) {
+        }
+    }
+        constructor.$inject = ['dependency1'];
+        angular.module('Module').directive('directiveName', constructor);
+
+    /* @ngInject */
+    function ControllerController () {
+
+    }
+})();

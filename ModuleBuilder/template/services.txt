@@ -1,0 +1,12 @@
+(function() {
+'use strict';
+    function constructor(dependency1) {
+        this.exposedFn = exposedFn;
+
+        ////////////////
+
+        function exposedFn() { }
+        }
+    constructor.$inject = ['dependency1'];
+    angular.module('Module').service('serviceName', constructor);
+})();
