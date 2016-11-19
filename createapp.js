@@ -1,6 +1,6 @@
 (function () {
     var fileSystem = require('fs');
-    driectoryList = ['controllers', 'services', 'directives', 'i18n', 'style', 'lib', 'images', 'views', 'factory', 'util',];
+    directoryList = ['controllers', 'services', 'directives', 'i18n', 'style', 'lib', 'images', 'views', 'factory', 'util',];
 
     createApp();
     function createApp() {

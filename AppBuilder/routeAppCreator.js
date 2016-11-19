@@ -2,16 +2,13 @@ module.exports.createRouteApplication = createRouteApplication;
 
 var fileSystem = require('fs');
 var helper = require('./FindDirectory.js');
-driectoryList = ['controllers', 'services', 'directives', 'i18n', 'style', 'lib', 'images', 'views', 'factory', 'util',];
-function createRouteApplication() {
-    var applicationName = process.argv[2];
-    if (applicationName) {
-        createDirectoryStructure(applicationName, driectoryList);
-        createFileForDifferentModules(applicationName);
-        console.log(applicationName + " Angular application is created successfully");
-    } else {
-        console.log("Application name is not given");
-    }
+var directoryList = ['controllers', 'services', 'directives', 'i18n', 'style', 'lib', 'images', 'views', 'factory', 'util',];
+
+
+function createRouteApplication(appData) {
+    var applicationName = appData.name;
+    createDirectoryStructure(applicationName, directoryList);
+    createFileForDifferentModules(appData);
 }
 
 function createDirectoryStructure(appName, driectoryList) {
@@ -26,22 +23,34 @@ function createDirectoryStructure(appName, driectoryList) {
     }
 }
 
-function createFileForDifferentModules(appName) {
-
-    var currentPath = helper.getCurrentDirectoryBase();
-    console.log(currentPath);
-    writeDataOnControllerFile(appName, currentPath);
-    writeDataOnServiceFile(appName,currentPath);
-    writeDataOnConfigurationFile(appName,currentPath);
-    putAngularLibraryFile(appName,currentPath);
-    putRoutingLibraryFile(appName,currentPath);
-    writeDataOnIndexFile(appName,currentPath);
-    writeDataOnPartialView(appName,currentPath);
-    //writeServerFile(appName,currentPath);
+function createFileForDifferentModules(appData) {
+    var appName = appData.name;
+    writeDataOnControllerFile(appName);
+    writeDataOnServiceFile(appName);
+    writeDataOnConfigurationFile(appName);
+    putAngularLibraryFile(appName);
+    Add_UI_RoutingLibraryFile(appName);
+    write_ui_Route_DataOnIndexFile(appName);
+    writeDataOnPartialView(appName);
+    writeServerFile(appName);
+    writePackageJSON(appName, appData);
+    console.log(appName + " Angular application is created successfully");
 }
 
-function writeDataOnControllerFile(appName, currentPath) {
-    fileSystem.readFile('simple-route-mvc-app/template/controller.txt', 'utf8', readData);
+function writePackageJSON(appName, appData) {
+    var json = JSON.stringify(appData);
+    fileSystem.writeFile(appName + '/' + 'package.json', json, 'utf8', writeData);
+    function writeData(error) {
+        if (error) {
+            return console.log(error);
+        }
+    }
+
+}
+
+
+function writeDataOnControllerFile(appName) {
+    fileSystem.readFile(__dirname + '/simple-route-mvc-app/template/controller.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
@@ -63,8 +72,8 @@ function writeDataOnControllerFile(appName, currentPath) {
     }
 }
 
-function writeDataOnServiceFile(appName, currentPath) {
-    fileSystem.readFile('simple-route-mvc-app/template/service.txt', 'utf8', readData);
+function writeDataOnServiceFile(appName) {
+    fileSystem.readFile(__dirname + '/simple-route-mvc-app/template/service.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
@@ -87,8 +96,8 @@ function writeDataOnServiceFile(appName, currentPath) {
 }
 
 
-function writeDataOnConfigurationFile(appName, currentPath) {
-    fileSystem.readFile('simple-route-mvc-app/template/ui-route.txt', 'utf8', readData);
+function writeDataOnConfigurationFile(appName) {
+    fileSystem.readFile(__dirname + '/simple-route-mvc-app/template/ui-route.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
@@ -110,14 +119,14 @@ function writeDataOnConfigurationFile(appName, currentPath) {
 
 
 }
-function putAngularLibraryFile(appName, currentPath) {
+function putAngularLibraryFile(appName) {
 
-    fileSystem.readFile('resource/angular.min.js', 'utf8', readData);
+    fileSystem.readFile(__dirname + '/resource/angular.js', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
         }
-        fileSystem.writeFile(appName + '/lib/' + 'angular.min.js', data, 'utf8', writeData);
+        fileSystem.writeFile(appName + '/lib/' + 'angular.js', data, 'utf8', writeData);
         function writeData(error) {
             if (error) {
                 return console.log(error);
@@ -128,8 +137,8 @@ function putAngularLibraryFile(appName, currentPath) {
 
 }
 
-function putRoutingLibraryFile(appName, currentPath) {
-    fileSystem.readFile('resource/angular-ui-router.js', 'utf8', readData);
+function Add_UI_RoutingLibraryFile(appName) {
+    fileSystem.readFile(__dirname + '/resource/angular-ui-router.js', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
@@ -143,11 +152,48 @@ function putRoutingLibraryFile(appName, currentPath) {
     }
 
 }
+function write_ui_Route_DataOnIndexFile(appName) {
 
+    fileSystem.readFile(__dirname + '/simple-route-mvc-app/template/index-ui-route.txt', 'utf8', readData);
+    function readData(error, data) {
+        if (error) {
+            return console.log(error);
+        }
+        var updatedDate = getUpdateData(data, appName);
+        fileSystem.writeFile(appName + '/' + 'index.html', updatedDate, 'utf8', writeData);
+        function writeData(error) {
+            if (error) {
+                return console.log(error);
+            }
+        }
 
-function writeDataOnIndexFile(appName, currentPath) {
+        function getUpdateData(data, appName) {
+            appName = appName.toLowerCase();
+            var updatedList = data.replace(/appName/g, appName);
+            return updatedList;
+        }
+    }
 
-    fileSystem.readFile('simple-route-mvc-app/template/index-ui-route.txt', 'utf8', readData);
+}
+function Add_NG_RoutingLibraryFile(appName) {
+    fileSystem.readFile(__dirname + '/resource/angular-route.js', 'utf8', readData);
+    function readData(error, data) {
+        if (error) {
+            return console.log(error);
+        }
+        fileSystem.writeFile(appName + '/lib/' + 'angular-route.js', data, 'utf8', writeData);
+        function writeData(error) {
+            if (error) {
+                return console.log(error);
+            }
+        }
+    }
+
+}
+
+function write_ng_Route_DataOnIndexFile(appName) {
+
+    fileSystem.readFile(__dirname + '/simple-route-mvc-app/template/index-ng-route.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
@@ -169,8 +215,9 @@ function writeDataOnIndexFile(appName, currentPath) {
 
 }
 
-function writeDataOnPartialView(appName, currentPath) {
-    fileSystem.readFile('simple-route-mvc-app/template/view.txt', 'utf8', readData);
+
+function writeDataOnPartialView(appName) {
+    fileSystem.readFile(__dirname + '/simple-route-mvc-app/template/view.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
@@ -185,9 +232,9 @@ function writeDataOnPartialView(appName, currentPath) {
 
 }
 
-function writeServerFile(appName, currentPath) {
+function writeServerFile(appName) {
 
-    fileSystem.readFile('template/app/server.txt', 'utf8', readData);
+    fileSystem.readFile(__dirname + '/simple-route-mvc-app/template/server.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);

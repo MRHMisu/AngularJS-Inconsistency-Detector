@@ -10,11 +10,12 @@
     "colors": "^1.1.2",
     "figlet": "^1.1.2",
     "inquirer": "^1.1.2",
-    "minimist":"^1.2.0",
+    "minimist": "^1.2.0",
     "progress": "^1.1.8"
   },
   "bin": {
-    "ng-module": "./index.js"
+    "ng-module": "./modulBuilder.js",
+    "ng-create-app": "./appBuilder.js"
   },
   "devDependencies": {},
   "scripts": {

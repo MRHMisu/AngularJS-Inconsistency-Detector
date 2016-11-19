@@ -2,7 +2,7 @@ module.exports.createModule = createModule;
 var fileSystem = require('fs');
 var progressBar = require('./projgressBar.js');
 var helper = require('./FindDirectory.js');
-
+var path = require('path');
 
 function createModule() {
     var moduleOption = process.argv[2];
@@ -12,7 +12,6 @@ function createModule() {
     if (moduleOption) {
         console.log(moduleOption);
         if (moduleName) {
-            console.log(moduleName);
             console.log("command accepted");
             if (moduleOption === '-c') {
                 progressBar.startProgressBar("Controller", 50);
@@ -34,15 +33,13 @@ function createModule() {
                     } else {
                         console.log("must have the the base url");
                     }
-
                 } else {
                     console.log("must have the the base url option");
                 }
-
             }
             else if (moduleOption === '-v') {
                 progressBar.startProgressBar("View", 50);
-
+                createViewFile(moduleName);
             }
         } else {
             console.log("must have the module option");
@@ -52,7 +49,7 @@ function createModule() {
     }
 }
 function createController(name) {
-    fileSystem.readFile(helper.getCurrentDirectoryBase()+'/ModuleBuilder/template/controller.txt', 'utf8', readData);
+    fileSystem.readFile(__dirname + '/template/controller.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
@@ -72,15 +69,14 @@ function createController(name) {
         }
     }
 }
-
 function createRESTService(name, baseURL) {
-    fileSystem.readFile('template/rest-service.txt', 'utf8', readData);
+    fileSystem.readFile(__dirname + '/template/rest-service.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
         }
         var updatedDate = getUpdateData(data, name);
-        fileSystem.writeFile(helper.getCurrentDirectoryBase() + '/' + name.toLowerCase() + '.rest.service.js', updatedDate, 'utf8', writeData);
+        fileSystem.writeFile(name.toLowerCase() + '.rest.service.js', updatedDate, 'utf8', writeData);
         function writeData(error) {
             if (error) {
                 return console.log(error);
@@ -96,7 +92,7 @@ function createRESTService(name, baseURL) {
     }
 }
 function createDirective(name) {
-    fileSystem.readFile('template/directive.txt', 'utf8', readData);
+    fileSystem.readFile(__dirname + '/template/directive.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
@@ -116,15 +112,14 @@ function createDirective(name) {
         }
     }
 }
-
 function createService(name) {
-    fileSystem.readFile('template/service.txt', 'utf8', readData);
+    fileSystem.readFile(__dirname + '/template/service.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
         }
         var updatedDate = getUpdateData(data, name);
-        fileSystem.writeFile(helper.getCurrentDirectoryBase() + '/' + name.toLowerCase() + '.service.js', updatedDate, 'utf8', writeData);
+        fileSystem.writeFile(name.toLowerCase() + '.service.js', updatedDate, 'utf8', writeData);
         function writeData(error) {
             if (error) {
                 return console.log(error);
@@ -139,13 +134,13 @@ function createService(name) {
     }
 }
 function createFactory(name) {
-    fileSystem.readFile('template/factory.txt', 'utf8', readData);
+    fileSystem.readFile(__dirname + '/template/factory.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
         }
         var updatedDate = getUpdateData(data, name);
-        fileSystem.writeFile(helper.getCurrentDirectoryBase() + '/' + name.toLowerCase() + '.factory.js', updatedDate, 'utf8', writeData);
+        fileSystem.writeFile(name.toLowerCase() + '.factory.js', updatedDate, 'utf8', writeData);
         function writeData(error) {
             if (error) {
                 return console.log(error);
@@ -158,4 +153,19 @@ function createFactory(name) {
             return updatedList;
         }
     }
+}
+function createViewFile(name) {
+    fileSystem.readFile(__dirname + '/template/view.txt', 'utf8', readData);
+    function readData(error, data) {
+        if (error) {
+            return console.log(error);
+        }
+        fileSystem.writeFile(name.toLowerCase() + '.view.html', data, 'utf8', writeData);
+        function writeData(error) {
+            if (error) {
+                return console.log(error);
+            }
+        }
+    }
+
 }
