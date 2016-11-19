@@ -7,7 +7,8 @@ var inquirer = require('inquirer');
 var argv = require('minimist')(process.argv.slice(2));
 var progressBar = require('./projgressBar.js');
 
-var routeAppCreator=require('../AppBuilder/routeAppCreator.js');
+var routeAppCreator = require('../AppBuilder/routeAppCreator.js');
+var restAppCreator= require('../AppBuilder/restAppCreator.js');
 
 
 function getAppQuestion(selection) {
@@ -41,7 +42,7 @@ function getSimpleRouteMVCAppConfiguration(selection) {
         {
             type: 'input',
             name: 'version',
-            default: argv._[1] || null,
+            default: argv._[1] || "1.0.0",
             message: chalk.yellow.bold('Version(1.0.0): '),
             validate: function (value) {
                 if (/^\d{1,2}\.\d{1,2}\.\d{1,2}$/.test(value)) {
@@ -129,7 +130,7 @@ function getSimpleRestMVCApplication(selection) {
         {
             type: 'input',
             name: 'version',
-            default: argv._[1] || null,
+            default: argv._[1] || "1.0.0",
             message: chalk.yellow.bold('Version(1.0.0): '),
             validate: function (value) {
                 if (/^\d{1,2}\.\d{1,2}\.\d{1,2}$/.test(value)) {
@@ -176,7 +177,27 @@ function getSimpleRestMVCApplication(selection) {
             type: 'input',
             name: 'restApiUrl',
             default: argv._[1] || null,
-            message: chalk.yellow.bold('Rest API Url: ')
+            message: chalk.yellow.bold('Rest API URL: '),
+            validate: function (value) {
+                if (value.length) {
+                    return true;
+                } else {
+                    return chalk.red.bold('Must have API URl');
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'restModel',
+            default: argv._[1] || null,
+            message: chalk.yellow.bold('Rest Model Name(at least One): '),
+            validate: function (value) {
+                if (value.length) {
+                    return true;
+                } else {
+                    return chalk.red.bold('Must have Model');
+                }
+            }
         },
         {
             type: 'list',
@@ -195,10 +216,14 @@ function getSimpleRestMVCApplication(selection) {
             author: answers.author,
             license: answers.license,
             gitHubRepo: answers.gitHubRepo,
-            restApiUrl:answers.restApiUrl,
+            restModel: answers.restModel,
+            restApiUrl: answers.restApiUrl,
             routeConfigFile: answers.routeConfigFile
         };
+        console.log(data.restApiUrl);
+        console.log(data.restModel);
         progressBar.startProgressBar(200);
+        restAppCreator.createRestApplication(data);
     });
 }
 function getEmptyMVCApplication(selection) {

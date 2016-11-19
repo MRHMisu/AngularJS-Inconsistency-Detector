@@ -96,7 +96,7 @@
         this.getXXXs = getXXXs;
         this.getXXX = getXXX;
         this.postXXX = postXXX;
-        this.putXXX = putXXX
+        this.putXXX = putXXX;
         this.deleteXXX = deleteXXX;
 
     }
