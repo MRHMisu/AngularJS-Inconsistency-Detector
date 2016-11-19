@@ -1,32 +1,50 @@
 module.exports.createModule = createModule;
 var fileSystem = require('fs');
 function createModule() {
-    var option = process.argv[2];
+    var moduleOption = process.argv[2];
     var moduleName = process.argv[3];
-    if (option) {
-        console.log(option);
+    var additionalOption=process.argv[4];
+    var baseURL=process.argv[5];
+    if (moduleOption) {
+        console.log(moduleOption);
         if (moduleName) {
             console.log(moduleName);
             console.log("command accepted");
-            if (option === '-c') {
+            if (moduleOption === '-c') {
                 createController(moduleName);
-            } else if (option === '-d') {
+            } else if (moduleOption === '-d') {
                 createDirective(moduleName);
-            } else if (option === '-f') {
+            } else if (moduleOption === '-f') {
                 createFactory(moduleName);
-            } else if (option === '-s') {
+            } else if (moduleOption === '-s') {
                 createService(moduleName);
-            } else if (option === '-v') {
+            }else if (moduleOption === '-rs') {
+                if(additionalOption==='-u')
+                {
+                    if(baseURL)
+                    {
+
+                    }
+
+                }
+
+            }
+            else if (moduleOption === '-v') {
 
             }
         } else {
-            console.log("must have the option");
+            console.log("must have the module option");
         }
     } else {
         console.log("must have the module name");
     }
 }
 
+
+function createRESTService()
+{
+
+}
 
 function createDirective(name) {
     fileSystem.readFile('template/directive.txt', 'utf8', readData);

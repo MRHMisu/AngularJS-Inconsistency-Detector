@@ -2,14 +2,14 @@
     'use strict';
     function constructor($http, $q) {
 
-        var apiUrl = 'http://localhost:10379/api/Users';
+        var apiUrl ="BASEURL";
 
-        // GET: api/Users
-        function getUsers() {
+        // GET: api/XXXs
+        function getXXXs() {
             var deferred = $q.defer();
             var req = {
                 method: 'GET',
-                url: 'http://localhost:10379/api/Users',
+                url:apiUrl,
             }
             $http(req).then(function successCallback(response) {
                 deferred.resolve(response.data);
@@ -20,11 +20,11 @@
         }
 
         // GET: api/Users/5
-        function getUser(id) {
+        function getXXX(id) {
             var deferred = $q.defer();
             var user = $http({
                 method: 'GET',
-                url: 'http://localhost:10379/api/Users',
+                url: apiUrl,
                 params: {
                     id: id
                 }
@@ -36,12 +36,12 @@
             return deferred.promise;
         };
 
-        // POST: api/Users
-        function postUser(userData) {
+        // POST: api/XXXs
+        function postXXX(userData) {
             var deferred = $q.defer();
             var req = {
                 method: 'POST',
-                url: 'http://localhost:10379/api/Users',
+                url:apiUrl,
                 data: userData,
                 dataType: "json"
             }
@@ -54,17 +54,17 @@
             return deferred.promise;
         };
 
-        // PUT: api/Users/5
-        function putUser(userData) {
+        // PUT: api/XXXs/5
+        function putXXXX(user) {
             var deferred = $q.defer();
             debugger;
             var req = {
                 method: 'PUT',
-                url: 'http://localhost:10379/api/Users',
+                url:apiUrl,
                 params: {
-                    id: userData.Email
+                    id: user.id
                 },
-                data: userData,
+                data: user,
                 dataType: "json"
             }
             $http(req).then(function successCallback(response) {
@@ -75,12 +75,12 @@
             return deferred.promise;
         };
 
-        // DELETE: api/Users/5
-        function deleteUser(id) {
+        // DELETE: api/XXXs/5
+        function deleteXXX(id) {
             var deferred = $q.defer();
             var req = {
                 method: 'DELETE',
-                url: 'http://localhost:10379/api/Users',
+                url:apiUrl,
                 params: {
                     id: id
                 }
@@ -93,11 +93,11 @@
             return deferred.promise;
         };
 
-        this.getUsers = getUsers;
-        this.getUser = getUser;
-        this.postUser = postUser;
-        this.putUser = putUser
-        this.deleteUser = deleteUser;
+        this.getXXXs = getXXXs;
+        this.getXXX = getXXX;
+        this.postXXX = postXXX;
+        this.putXXX = putXXX
+        this.deleteXXX = deleteXXX;
 
     }
 
