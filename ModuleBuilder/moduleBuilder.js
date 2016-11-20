@@ -3,6 +3,8 @@ var fileSystem = require('fs');
 var progressBar = require('./projgressBar.js');
 var helper = require('./FindDirectory.js');
 var path = require('path');
+var colors = require('colors');
+
 
 function createModule() {
     var moduleOption = process.argv[2];
@@ -10,9 +12,11 @@ function createModule() {
     var additionalOption = process.argv[4];
     var baseURL = process.argv[5];
     if (moduleOption) {
-        console.log(moduleOption);
+        if (moduleOption === '-h' || moduleOption === '--help') {
+            showHelpInformation();
+        }
         if (moduleName) {
-            console.log("command accepted");
+            console.log(("command accepted").green.bold);
             if (moduleOption === '-c') {
                 progressBar.startProgressBar("Controller", 50);
                 createController(moduleName);
@@ -31,23 +35,42 @@ function createModule() {
                         progressBar.startProgressBar("Rest Service", 80);
                         createRESTService(moduleName, baseURL);
                     } else {
-                        console.log("must have the the base url");
+                        console.log(("must have the the base url").red.bold);
                     }
                 } else {
-                    console.log("must have the the base url option");
+                    console.log(("must have the the base url option").red.bold);
                 }
             }
             else if (moduleOption === '-v') {
                 progressBar.startProgressBar("View", 50);
                 createViewFile(moduleName);
+            } else if (moduleOption === '--help' || moduleOption === '-h') {
+                showHelpInformation();
             }
         } else {
-            console.log("must have the module option");
+            console.log(("must have the module name").red.bold);
         }
     } else {
-        console.log("must have the module name");
+        console.log(("must have the module option").red.bold);
     }
 }
+
+
+function showHelpInformation() {
+    console.log([
+        'usage: ng-module option moduleName',
+        '',
+        'options:',
+        '  -c                                create controller',
+        '  -d                                create custome directive',
+        '  -f                                create fatory',
+        '  -s                                create service',
+        '  -rs modelName -u baseURL          create rest service',
+        '  -h --help                         Print this list and exit.'
+    ].join('\n').green.bold);
+    process.exit();
+}
+
 function createController(name) {
     fileSystem.readFile(__dirname + '/template/controller.txt', 'utf8', readData);
     function readData(error, data) {
@@ -98,7 +121,7 @@ function createDirective(name) {
             return console.log(error);
         }
         var updatedDate = getUpdateData(data, name);
-        fileSystem.writeFile(helper.getCurrentDirectoryBase() + '/' + name.toLowerCase() + '.directive.js', updatedDate, 'utf8', writeData);
+        fileSystem.writeFile(name.toLowerCase() + '.directive.js', updatedDate, 'utf8', writeData);
         function writeData(error) {
             if (error) {
                 return console.log(error);
