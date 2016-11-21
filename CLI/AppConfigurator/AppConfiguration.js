@@ -8,8 +8,8 @@ var argv = require('minimist')(process.argv.slice(2));
 var progressBar = require('./projgressBar.js');
 
 var routeAppCreator = require('../AppBuilder/routeAppCreator.js');
-var restAppCreator= require('../AppBuilder/restAppCreator.js');
-
+var restAppCreator = require('../AppBuilder/restAppCreator.js');
+var emptyAppCreator = require('../AppBuilder/simpleAppCreator.js');
 
 function getAppQuestion(selection) {
     if (selection.type === 1) {
@@ -91,6 +91,12 @@ function getSimpleRouteMVCAppConfiguration(selection) {
             message: chalk.yellow.bold('Select Dependencies(route):'),
             choices: [chalk.green('angular-route'), chalk.green('angular-ui-route')],
             default: 0
+        },
+        {
+            type: 'confirm',
+            name: 'libVersion',
+            message: chalk.yellow.bold('Do you want to use minified version of the library?:'),
+            default:false
         }
     ];
 
@@ -102,9 +108,10 @@ function getSimpleRouteMVCAppConfiguration(selection) {
             author: answers.author,
             license: answers.license,
             gitHubRepo: answers.gitHubRepo,
-            routeConfigFile: answers.routeConfigFile
+            routeConfigFile: answers.routeConfigFile,
+            libVersion:answers.libVersion
         };
-        progressBar.startProgressBar(200);
+        progressBar.startProgressBar(data.name,200);
         routeAppCreator.createRouteApplication(data);
 
     });
@@ -205,6 +212,12 @@ function getSimpleRestMVCApplication(selection) {
             message: chalk.yellow.bold('Select Dependencies(route):'),
             choices: [chalk.green('angular-route'), chalk.green('angular-ui-route')],
             default: 0
+        },
+        {
+            type: 'confirm',
+            name: 'libVersion',
+            message: chalk.yellow.bold('Do you want to use minified version of the library?:'),
+            default:false
         }
     ];
 
@@ -218,11 +231,10 @@ function getSimpleRestMVCApplication(selection) {
             gitHubRepo: answers.gitHubRepo,
             restModel: answers.restModel,
             restApiUrl: answers.restApiUrl,
-            routeConfigFile: answers.routeConfigFile
+            routeConfigFile: answers.routeConfigFile,
+            libVersion:answers.libVersion
         };
-        console.log(data.restApiUrl);
-        console.log(data.restModel);
-        progressBar.startProgressBar(200);
+        progressBar.startProgressBar(data.name,200);
         restAppCreator.createRestApplication(data);
     });
 }
@@ -247,7 +259,7 @@ function getEmptyMVCApplication(selection) {
         {
             type: 'input',
             name: 'version',
-            default: argv._[1] || null,
+            default: argv._[1] || "1.0.0",
             message: chalk.yellow.bold('Version(1.0.0): '),
             validate: function (value) {
                 if (/^\d{1,2}\.\d{1,2}\.\d{1,2}$/.test(value)) {
@@ -301,7 +313,8 @@ function getEmptyMVCApplication(selection) {
             license: answers.license,
             gitHubRepo: answers.gitHubRepo,
         };
-        progressBar.startProgressBar(100);
+        progressBar.startProgressBar(data.name,100);
+        emptyAppCreator.createSimpleEmptyApplication(data);
     });
 
 }

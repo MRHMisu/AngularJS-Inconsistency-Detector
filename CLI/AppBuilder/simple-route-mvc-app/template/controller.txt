@@ -1,0 +1,23 @@
+(function (angular) {
+    'use strict';
+    function constructor(serviceName,factoryName) {
+        var vm = this;
+
+        function init() {
+            vm.messages = "Hello World";
+            vm.serviceMessage=serviceName.getMessageFromService();
+            vm.factoryMessage=factoryName.getMessageFromFactory();
+        }
+
+        function changeText() {
+
+            vm.messages = "Welcome to the World";
+        }
+
+        init();
+        vm.changeText = changeText;
+
+    }
+    constructor.$inject = ['serviceName','factoryName'];
+    angular.module('moduelName').controller('controllerName', constructor);
+})(window.angular);

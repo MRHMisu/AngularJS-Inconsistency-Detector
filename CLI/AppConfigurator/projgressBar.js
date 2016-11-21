@@ -1,10 +1,8 @@
-/**
- * Created by MisuBeImp on 8/18/2016.
- */
+module.exports.startProgressBar=startProgressBar;
 var ProgressBar = require('progress');
 var colors = require('colors');
 
-function startProgressBar(tickInmiliSeconds)
+function startProgressBar(appName,tickInmiliSeconds)
 {
     var stringColour='Creating application [:bar] :percent :etas'.blue.bold;
     var progressBar = new ProgressBar(stringColour, {
@@ -16,16 +14,9 @@ function startProgressBar(tickInmiliSeconds)
     var timer = setInterval(function () {
         progressBar.tick();
         if (progressBar.complete) {
-            console.log('Application created successfully\n'.green.bold);
+            console.log((appName + ' application has created successfully\n').green.bold);
             clearInterval(timer);
         }
     },tickInmiliSeconds);
 
 }
-module.exports.startProgressBar=startProgressBar;
-
-/*if (/^\d{1,2}\.\d{1,2}\.\d{1,2}$/.test(subject)) {
-    // Successful match
-} else {
-    // Match attempt failed
-}*/

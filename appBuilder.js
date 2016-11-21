@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-var prompt=require('./AppConfigurator/AppSelection.js');
+var prompt=require('./CLI/AppConfigurator/AppSelection.js');
 prompt.getUserAppChoice();

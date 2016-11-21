@@ -2,6 +2,7 @@
     'use strict';
     function constructor(dependency1) {
         var directive = {
+            templateUrl:'views/app.view.html'
             bindToController: true,
             controller: ControllerController,
             controllerAs: 'vm',

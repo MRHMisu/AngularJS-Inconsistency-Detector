@@ -16,22 +16,26 @@ function createModule() {
             showHelpInformation();
         }
         if (moduleName) {
-            console.log(("command accepted").green.bold);
             if (moduleOption === '-c') {
+                console.log(("command accepted").green.bold);
                 progressBar.startProgressBar("Controller", 50);
                 createController(moduleName);
             } else if (moduleOption === '-d') {
+                console.log(("command accepted").green.bold);
                 progressBar.startProgressBar("Directive", 50);
                 createDirective(moduleName);
             } else if (moduleOption === '-f') {
+                console.log(("command accepted").green.bold);
                 progressBar.startProgressBar("Factory", 50);
                 createFactory(moduleName);
             } else if (moduleOption === '-s') {
+                console.log(("command accepted").green.bold);
                 progressBar.startProgressBar("Service", 50);
                 createService(moduleName);
             } else if (moduleOption === '-rs') {
                 if (additionalOption === '-u') {
                     if (baseURL) {
+                        console.log(("command accepted").green.bold);
                         progressBar.startProgressBar("Rest Service", 80);
                         createRESTService(moduleName, baseURL);
                     } else {
@@ -42,10 +46,14 @@ function createModule() {
                 }
             }
             else if (moduleOption === '-v') {
+                console.log(("command accepted").green.bold);
                 progressBar.startProgressBar("View", 50);
                 createViewFile(moduleName);
             } else if (moduleOption === '--help' || moduleOption === '-h') {
                 showHelpInformation();
+            }else
+            {
+                console.log(("Invalid Option").red.bold);
             }
         } else {
             console.log(("must have the module name").red.bold);
