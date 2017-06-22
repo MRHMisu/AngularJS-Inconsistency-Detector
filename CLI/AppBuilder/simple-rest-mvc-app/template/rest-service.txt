@@ -55,7 +55,7 @@
         };
 
         // PUT: api/XXXs/5
-        function putXXXX(XXX) {
+        function putXXX(XXX) {
             var deferred = $q.defer();
             debugger;
             var req = {

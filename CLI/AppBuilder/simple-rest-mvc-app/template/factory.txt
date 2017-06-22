@@ -1,20 +1,17 @@
-(function (angular) {
-    'use strict';
+(function(angular) {
+'use strict';
+
     function constructor() {
-        var factoryMessage;
-        function inti()
-        {
-            factoryMessage="This is from factory message";
-        }
-        function getMessageFromFactory()
-        {
-            return factoryMessage;
+        var service = {
+            getMessageFromFactory:getMessageFromFactory
+        };
 
-        }
+        return service;
 
-        inti();
-        this.getMessageFromFactory=getMessageFromFactory;
+        function getMessageFromFactory() {
+          return "This is from factory message";
+         }
     }
     constructor.$inject = [];
-    angular.module('moduelName').factory('factoryName',constructor);
+    angular.module('moduelName').factory('factoryName', constructor);
 })(window.angular);

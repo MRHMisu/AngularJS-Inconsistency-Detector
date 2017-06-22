@@ -13,7 +13,7 @@ function startProgressBar(moduleType, tickInmiliSeconds) {
     var timer = setInterval(function () {
         progressBar.tick();
         if (progressBar.complete) {
-            console.log((moduleType + ' has created successfully\n').green.bold);
+            console.log((moduleType + ' has been created successfully\n').green.bold);
             clearInterval(timer);
         }
     }, tickInmiliSeconds);

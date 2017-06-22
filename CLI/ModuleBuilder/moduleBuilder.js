@@ -51,9 +51,8 @@ function createModule() {
                 createViewFile(moduleName);
             } else if (moduleOption === '--help' || moduleOption === '-h') {
                 showHelpInformation();
-            }else
-            {
-                console.log(("Invalid Option").red.bold);
+            } else {
+                console.log(("invalid Option").red.bold);
             }
         } else {
             console.log(("must have the module name").red.bold);
@@ -70,8 +69,8 @@ function showHelpInformation() {
         '',
         'options:',
         '  -c                                create controller',
-        '  -d                                create custome directive',
-        '  -f                                create fatory',
+        '  -d                                create custom directive',
+        '  -f                                create factory',
         '  -s                                create service',
         '  -rs modelName -u baseURL          create rest service',
         '  -h --help                         Print this list and exit.'
@@ -80,13 +79,18 @@ function showHelpInformation() {
 }
 
 function createController(name) {
+
+    var path = "";
+    if (fileSystem.existsSync("controllers")) {
+        var path = "controllers/"
+    }
     fileSystem.readFile(__dirname + '/template/controller.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
         }
         var updatedDate = getUpdateData(data, name);
-        fileSystem.writeFile(name.toLowerCase() + '.controller.js', updatedDate, 'utf8', writeData);
+        fileSystem.writeFile(path + name.toLowerCase() + '.controller.js', updatedDate, 'utf8', writeData);
         function writeData(error) {
             if (error) {
                 return console.log(error);
@@ -101,13 +105,19 @@ function createController(name) {
     }
 }
 function createRESTService(name, baseURL) {
+
+    var path = "";
+    if (fileSystem.existsSync("services")) {
+        var path = "services/"
+    }
+
     fileSystem.readFile(__dirname + '/template/rest-service.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
         }
         var updatedDate = getUpdateData(data, name);
-        fileSystem.writeFile(name.toLowerCase() + '.rest.service.js', updatedDate, 'utf8', writeData);
+        fileSystem.writeFile(path + name.toLowerCase() + '.rest.service.js', updatedDate, 'utf8', writeData);
         function writeData(error) {
             if (error) {
                 return console.log(error);
@@ -123,13 +133,18 @@ function createRESTService(name, baseURL) {
     }
 }
 function createDirective(name) {
+
+    var path = "";
+    if (fileSystem.existsSync("directives")) {
+        var path = "directives/"
+    }
     fileSystem.readFile(__dirname + '/template/directive.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
         }
         var updatedDate = getUpdateData(data, name);
-        fileSystem.writeFile(name.toLowerCase() + '.directive.js', updatedDate, 'utf8', writeData);
+        fileSystem.writeFile(path + name.toLowerCase() + '.directive.js', updatedDate, 'utf8', writeData);
         function writeData(error) {
             if (error) {
                 return console.log(error);
@@ -144,13 +159,18 @@ function createDirective(name) {
     }
 }
 function createService(name) {
+
+    var path = "";
+    if (fileSystem.existsSync("services")) {
+        var path = "services/"
+    }
     fileSystem.readFile(__dirname + '/template/service.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
         }
         var updatedDate = getUpdateData(data, name);
-        fileSystem.writeFile(name.toLowerCase() + '.service.js', updatedDate, 'utf8', writeData);
+        fileSystem.writeFile(path + name.toLowerCase() + '.service.js', updatedDate, 'utf8', writeData);
         function writeData(error) {
             if (error) {
                 return console.log(error);
@@ -165,13 +185,17 @@ function createService(name) {
     }
 }
 function createFactory(name) {
+    var path = "";
+    if (fileSystem.existsSync("factory")) {
+        var path = "factory/"
+    }
     fileSystem.readFile(__dirname + '/template/factory.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
         }
         var updatedDate = getUpdateData(data, name);
-        fileSystem.writeFile(name.toLowerCase() + '.factory.js', updatedDate, 'utf8', writeData);
+        fileSystem.writeFile(path + name.toLowerCase() + '.factory.js', updatedDate, 'utf8', writeData);
         function writeData(error) {
             if (error) {
                 return console.log(error);
@@ -186,12 +210,17 @@ function createFactory(name) {
     }
 }
 function createViewFile(name) {
+
+    var path = "";
+    if (fileSystem.existsSync("view")) {
+        var path = "view/"
+    }
     fileSystem.readFile(__dirname + '/template/view.txt', 'utf8', readData);
     function readData(error, data) {
         if (error) {
             return console.log(error);
         }
-        fileSystem.writeFile(name.toLowerCase() + '.view.html', data, 'utf8', writeData);
+        fileSystem.writeFile(path + name.toLowerCase() + '.view.html', data, 'utf8', writeData);
         function writeData(error) {
             if (error) {
                 return console.log(error);

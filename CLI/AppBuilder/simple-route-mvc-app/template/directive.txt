@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    function constructor(dependency1) {
+    function constructor() {
         var directive = {
             bindToController: true,
             controller: ControllerController,
@@ -16,8 +16,8 @@
         }
     }
 
-    constructor.$inject = ['dependency1'];
-    angular.module('Module').directive('Directive', constructor);
+    constructor.$inject = [];
+    angular.module('moduelName').directive('Directive', constructor);
 
     /* @ngInject */
     function ControllerController () {

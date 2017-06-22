@@ -1,8 +1,8 @@
 <div >
     <div>
-        {{vm.messages}}
-        {{vm.serviceMessage}}
-        {{vm.factoryMessage}}
+        {{vm.messages}}</br>
+        {{vm.serviceMessage}}</br>
+        {{vm.factoryMessage}}</br>
         <button type="button" ng-click="vm.changeText()">Change Text</button>
     </div>
 </div>

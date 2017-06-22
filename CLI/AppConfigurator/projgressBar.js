@@ -14,7 +14,7 @@ function startProgressBar(appName,tickInmiliSeconds)
     var timer = setInterval(function () {
         progressBar.tick();
         if (progressBar.complete) {
-            console.log((appName + ' application has created successfully\n').green.bold);
+            console.log((appName + ' application has been created successfully\n').green.bold);
             clearInterval(timer);
         }
     },tickInmiliSeconds);

@@ -23,11 +23,36 @@ function createDirectoryStructure(appName, driectoryList) {
 
 function createFileForDifferentModules(appData) {
     var appName = appData.name;
+    writeDataOnConfigurationFile(appName);
     writeDataOnControllerFile(appName);
     addAngularLibraryFile(appName);
     writeServerFile(appName);
     writePackageJSON(appName, appData);
     writeDataOnIndexFile(appName);
+}
+
+function writeDataOnConfigurationFile(appName) {
+    fileSystem.readFile(__dirname + '/simple-empty-mvc-app/template/app.config.txt', 'utf8', readData);
+    function readData(error, data) {
+        if (error) {
+            return console.log(error);
+        }
+        var updatedDate = getUpdateData(data, appName);
+        fileSystem.writeFile(appName + '/' + appName.toLowerCase() + '.config.js', updatedDate, 'utf8', writeData);
+        function writeData(error) {
+            if (error) {
+                return console.log(error);
+            }
+        }
+
+        function getUpdateData(data, appName) {
+            appName = appName.toLowerCase();
+            var updatedList = data.replace(/appName/g, appName);
+            return updatedList;
+        }
+    }
+
+
 }
 
 function writePackageJSON(appName, appData) {
@@ -98,6 +123,7 @@ function writeDataOnIndexFile(appName) {
         function getUpdateData(data, appName) {
             appName = appName.toLowerCase();
             var updatedList = data.replace(/appName/g, appName);
+            updatedList = updatedList.replace(/controllerName/g, appName+"Controller" +" as vm");
             return updatedList;
         }
     }

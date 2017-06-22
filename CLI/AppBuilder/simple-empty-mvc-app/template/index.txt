@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Hello Angular </title>
+    <!--Library--->
+    <script type="text/javascript" src="lib/angular.js"></script>
+    <!--------->
+    <!--Main App--->
+         <script src="appName.config.js"></script>
+    <!---------->
+    <!--controller-->
+        <script src="appName.controller.js"></script>
+    <!---------->
+</head>
+<body ng-app="appName" ng-controller="controllerName">
+<div>
+{{ vm.messages}}
+
+</div>
+
+</body>
+</html>
