@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Like Counter</title>
+    <!--Library--->
+    <script type="text/javascript" src="lib/angular.js"></script>
+    <script type="text/javascript" src="lib/angular-route.js"></script>
+    <!--------->
+
+    <!--Main App--->
+         <script src="likecounter.config.js"></script>
+    <!---------->
+
+    <!--controller-->
+        <script src="controllers/likecounter.controller.js"></script>
+		<script src="directives/appinformation.directive.js"></script>
+		<script src="controllers/appInformation.controller.js"></script>
+		
+		
+    <!---------->
+</head>
+<body ng-app="likecounter">
+
+    <div ng-view></div>
+
+</body>
+</html>
