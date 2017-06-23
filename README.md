@@ -32,9 +32,9 @@ FANTASIA: An Automatic Inconsistency Identification and Scaffolding Tool for Ang
 
 ### How to Use?
 
-![DownGit User Manual](link)
+![FANTASIA User Manual](https://youtu.be/ksqxrX9-SfI)
 
-## Dependencies
+## Dependenciess
 
 Package | Version | Dev
 --- |:---:|:---:
