@@ -22,10 +22,10 @@
   "bin": {
     "ng-module": "./module-builder.js",
     "ng-create-app": "./app-builder.js",
-    "find-incons":"./inconsistency-detector.js"
+    "find-incons": "./inconsistency-detector.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "readme": "node ./node_modules/.bin/node-readme"
   },
   "repository": {
     "type": "git",
@@ -39,5 +39,8 @@
   "bugs": {
     "url": "https://github.com/MisuBeImp/FANTASIA/issues"
   },
-  "homepage": "https://github.com/MisuBeImp/FANTASIA#readme"
+  "homepage": "https://github.com/MisuBeImp/FANTASIA#readme",
+  "devDependencies": {
+    "node-readme": "^0.1.9"
+  }
 }
