@@ -1,6 +1,6 @@
 # fantasia-inconsistency-detector
 
-![npm](https://img.shields.io/npm/v/fantasia-inconsistency-detector.svg) ![license](https://img.shields.io/npm/l/fantasia-inconsistency-detector.svg) ![github-issues](https://img.shields.io/github/issues/MisuBeImp/FANTASIA.svg)  ![Circle CI build status](https://circleci.com/gh/MisuBeImp/FANTASIA.svg?style=svg)
+![npm](https://img.shields.io/npm/v/fantasia-inconsistency-detector.svg) ![license](https://img.shields.io/npm/l/fantasia-inconsistency-detector.svg) ![github-issues](https://img.shields.io/github/issues/MisuBeImp/FANTASIA.svg)
 
 FANTASIA: An Automatic Inconsistency Identification and Scaffolding Tool for AngularJS 1.x Mvc Applications
 
@@ -17,15 +17,19 @@ FANTASIA: An Automatic Inconsistency Identification and Scaffolding Tool for Ang
 
 ## Features
 
+*1.`Find inconsistency in AngularJS MVC applications by ruuning the command find-incos in application's base directory`
+*2.`Scafolding AngularJS MVC application by running the command ng-create-app {app-name}`
+*3.`Scafolding AngularJS modules like controller, views, services etc by running the command ng-module -(option) {module-name}`
+*4. `For help run the command ng-module --h or ng-module --help`
 
-## Install
+## Install It globally 
 
-`npm install --save fantasia-inconsistency-detector`
+`npm install fantasia-inconsistency-detector -g`
 
 
-## Scripts
+### How to Use?
 
- - **npm run readme** : `node ./node_modules/.bin/node-readme`
+![DownGit User Manual](link)
 
 ## Dependencies
 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org/" ng-app="CafeTownsend">
+
+<head>
+    <meta charset="utf-8">
+    <title>CafeTownsend - AngularJS</title>
+    <link rel="stylesheet" href="style/styles.css"/>
+</head>
+
+<body>
+<div class="main-view" ng-controller="SessionController as vm">
+
+    <header>
+        <div id="logout" ng-show="vm.user.authenticated" style="display:none;">
+            <p class="main-button logout" ng-click="vm.logoutUser()"> Logout </p>
+            <p class="session-user"> {{vm.user.userName}} </p>
+        </div>
+    </header>
+
+    <ng-view>
+        <div class="main-view-content stack">
+            <div class="login active">
+
+                <div id="spinner" class="spinner">
+                    <img id="img-spinner" src="images/spinner.gif" alt="Loading"/>
+                </div>
+
+            </div>
+        </div>
+    </ng-view>
+
+    <footer>
+        <p class="major">
+            Built with <a href="http://angularjs.org/">AngularJS</a>,
+            All written in <a href="http://coffeescript.org/">CoffeeScript</a>.
+        </p>
+        <p class="minor">
+            <a href="https://github.com/ThomasBurleson/angularJS-CafeTownsend">Get source code</a>
+            by
+            <a href="http://www.gridlinked.info">Thomas Burleson</a> @2012
+        </p>
+    </footer>
+
+</div>
+
+<!-- Javascript Loader:  http://headjs.com/#usage    -->
+
+<script src="lib/angular.js"></script>
+<script src="app.config.js"></script>
+<script src="lib/angular-route.js"></script>
+<script src="controllers/EmployeeController.controller.js" type="text/javascript"></script>
+<script src="controllers/EmployeeEditController.controller.js" type="text/javascript"></script>
+<script src="controllers/LoginController.controller.js" type="text/javascript"></script>
+<script src="controllers/SessionController.controller.js" type="text/javascript"></script>
+<script src="directives/ng-dblclick.directive.js" type="text/javascript"></script>
+<script src="directives/ng-focus.directive.js" type="text/javascript"></script>
+<!--<script src="services/CafeTownsend.service.js" type="text/javascript"></script>-->
+<script src="services/employeeService.service.js" type="text/javascript"></script>
+<script src="services/sessionService.service.js" type="text/javascript"></script>
+<script src="lib/jquery.min.js"></script>
+<script src="lib/uuid.js"></script>
+<script src="js/bootstrap.js" type="text/javascript"></script>
+
+<!--
+<script src="lib/head.load.min.js" type="text/javascript"></script>
+
+-->
+
+</body>
+
+</html>

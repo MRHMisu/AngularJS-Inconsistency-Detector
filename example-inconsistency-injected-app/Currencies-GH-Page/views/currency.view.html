@@ -1,0 +1,109 @@
+<div>
+    <div id="simplyDoBanner">Currencies is a <a href="http://simplydo.com" target="new">Simply Do</a> project.</div>
+    <div id="top">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <ul class="social-buttons cf">
+                        <li><a href="http://twitter.com/share" class="socialite twitter-share"
+                               data-text="Converting Currencies in real time with Simply Do Currencies."
+                               data-url="http://simplydo.com/currencies" data-count="vertical" data-via="simplydothat"
+                               rel="nofollow" target="_blank"><span class="vhidden">Twitter</span></a></li>
+                        <li><a href="https://plus.google.com/share?url=http://simplydo.com/currencies"
+                               class="socialite googleplus-one" data-size="tall"
+                               data-href="http://simplydo.com/currencies" rel="nofollow" target="_blank"><span
+                                class="vhidden">Google+</span></a></li>
+                        <li>
+                            <a href="http://www.facebook.com/sharer.php?u=http://simplydo.com/currencies&amp;t=Simply%20Do%20Currencies"
+                               class="socialite facebook-like" data-href="http://simplydo.com/currencies"
+                               data-send="false" data-layout="box_count" data-width="60" data-show-faces="false"
+                               rel="nofollow" target="_blank"><span class="vhidden">Facebook</span></a></li>
+                    </ul>
+                    <h1>Currencies</h1>
+                    <p>Enter multiple balances in different currencies and convert them all at once. In real time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="span6">
+
+                <h2>Enter the amount(s) you want to convert</h2>
+                <ul>
+                    <li ng-repeat="balance in vm.balances">
+                        <input type="text" ng-model="balance.amount" placeholder="Amount..." class="span2"/>
+                        <select class="span3" ng-model='balance.exchangeRate'
+                                ng-options="vm.getCurrencyNameFull(symbol) for (symbol, rate) in vm.exchangeRates.rates">
+                            <option value="">Select currency...</option>
+                        </select>
+                        <a class="" ng-click="vm.removeBalance($index);"><i class="icon-remove"></i></a>
+                    </li>
+                </ul>
+                <p>
+                    <button class="btn btn-primary" ng-click="vm.addBalancee();"><i class="icon-plus icon-white"></i> Add
+                        another
+                    </button>
+                </p>
+                <p class="note">Exchange Rates were last updated {{vm.ageOfExchangeRate()}} ago.<br/>Data powered by <a
+                        href="http://openexchangerates.org/" target="new">open exchange rates</a>.<br/>See terms and
+                    disclaimer below.</p>
+
+            </div>
+            <div class="span6">
+                <h2>Your total in pretty much every currency</h2>
+                <table class="table table-striped">
+                    <tr ng-repeat="(currency, rate) in vm.exchangeRates.rates">
+                        <td>{{vm.getCurrencyName(currency)}}</td>
+                        <td>{{currency}}</td>
+                        <td class="number">{{vm.roundDown(vm.convertBaseValueToCurrencyValue(vm.totalBalance(),rate))}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="span3">
+                    <ul class="unstyled">
+                        <li>© 2012 <a href="http://simplydo.com" target="new">Simply Do</a>, LLC.<br/>All Rights
+                            Reserved.
+                        </li>
+                    </ul>
+                </div>
+                <div class="span3">
+                    <ul class="unstyled">
+                        <li>The source code is open and <a href="https://github.com/SimplyDo/currencies" target="new">available
+                            on Github</a></li>
+                        <li>Created with <a href="http://angularjs.org/" target="new">AngularJS</a> by Google</li>
+                        <li>The UI is <a href="http://twitter.github.com/bootstrap/" target="new">Twitter
+                            Bootstrapped</a></li>
+                        <li>Social buttons by <a href="http://socialitejs.com/" target="new">Socialite.js</a></li>
+                        <li>Hosted with <a href="http://pages.github.com/" target="new">Github pages</a></li>
+
+                    </ul>
+                </div>
+                <div class="span6">
+                    <ul class="unstyled">
+                        <li>Exchange rates powered by <a href="http://openexchangerates.org/" target="new">open exchange
+                            rates</a>:
+                        </li>
+                        <li>
+                            <strong>Disclaimer:</strong> {{vm.exchangeRates.disclaimer}}
+                        </li>
+                        <li>
+                            <strong>License:</strong> {{vm.exchangeRates.license}}
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>>

@@ -1,0 +1,55 @@
+<div class="main-view-content stack">
+    <div class="employees active">
+        <div class="employees-overview active">
+
+            <div class="employee-edit active">
+                <ul id="sub-nav">
+                    <li ng-show="!vm.isEditing" ng-click="vm.cancel()">
+                        <a class="subButton bCancel"><< Cancel</a>
+                    </li>
+                </ul>
+                <form ng-submit="vm.save(employee)">
+                    <fieldset>
+                        <legend ng-hide="vm.isEditing" ng-click="vm.save()">Add</legend>
+                        <legend ng-show="vm.isEditing" ng-click="vm.save()">Edit</legend>
+
+                        <label>
+                            <span>First name:</span>
+                            <input type="text" ng-model="vm.employee.firstName" required autofocus/>
+                        </label>
+                        <label>
+                            <span>Last name:</span>
+                            <input type="text" ng-model="vm.employee.lastName" required/>
+                        </label>
+
+                        <label>
+                            <span>e-Mail: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <input type="email" ng-model="vm.employee.email" required/>
+                        </label>
+
+                        <label>
+                            <span>Start date:</span>
+                            <input type="text"
+                                   ng-model="vm.employee.startDate"
+                                   pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d"
+                                   title="Please enter a date formatting MM/DD/YYYY"
+                                   required
+                            />
+                        </label>
+                        <div class="formFooter">
+                            <button type="submit" class="main-button">
+                                Save
+                            </button>
+                            <button class="bDelete main-button" ng-hide="vm.isEditing" ng-click="vm.remove()">
+                                Delete
+                            </button>
+                            <button class="bDelete main-button" ng-show="vm.isEditing" ng-click="vm.cancel()">
+                                Cancel
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

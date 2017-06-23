@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" xmlns-ng="http://angularjs.org" ng-app="kodigon" ng-controller="appController">
+<head>
+    <meta charset="utf-8">
+    <title>Kodigon - Example of project using AngularJS</title>
+    <link rel="stylesheet" href="style/foundation.css">
+    <link rel="stylesheet" href="style/app.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Luckiest+Guy">
+    <link rel="icon" type="image/png" href="images/icon/favicon.png">
+    <!--[if IE]>
+    <link rel="shortcut icon" type="image/x-icon" href="images/icon/favicon.ico">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+<nav class="top-bar">
+    <ul>
+        <li class="name" ng-class="{active: location.path() == '/'}">
+            <h1><a href="#">Kodigon</a></h1>
+        </li>
+    </ul>
+    <section>
+        <ul class="left">
+            <li class="divider"></li>
+            <li ng-class="{active: location.path() == '/about'}">
+                <a href="#/about">About</a>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown" ng-class="{active: algoLocation.test(location.path())}">
+                <a href="#">Algorithms</a>
+                <ul class="dropdown">
+                    <li><a href="#/algorithm/base64" class="">Base64</a></li>
+                    <li><a href="#/algorithm/md5">MD5</a></li>
+                    <li><a href="#/algorithm/sha1">SHA1</a></li>
+                    <li><a href="#/">See all &rarr;</a></li>
+                </ul>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="https://github.com/yrezgui/kodigon">Github</a>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </section>
+</nav>
+<div ng-view></div>
+<footer class="row">
+    <div class="twelve columns">
+        <hr>
+        <div class="row">
+            <div class="six columns">
+                <p><a href="http://projects.yrezgui.com/kodigon/">Kodigon</a> &copy; 2012 <a
+                        href="http://www.yrezgui.com">Yacine Rezgui</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="lib/angular.js" ></script>
+<script src="lib/angular-route.js" ></script>
+
+<script src="app.config.js"></script>
+
+<script src="controllers/index.controller.js"></script>
+<script src="controllers/about.controller.js"></script>
+<script src="controllers/algorithm.controller.js"></script>
+<script src="controllers/app.controller.js"></script>
+
+<script src="services/algorithms.factory.js"></script>
+<script src="services/base64.factory.js"></script>
+<script src="services/cr32.factory.js"></script>
+<script src="services/escape.factory.js"></script>
+<script src="services/htmlentities.factory.js"></script>
+<script src="services/md5.factory.js"></script>
+<script src="services/sha1.factory.js"></script>
+<script src="services/sha256.factory.js"></script>
+<script src="services/urlencode.factory.js"></script>
+<script src="services/utf8.factory.js"></script>
+
+
+</body>
+</html>

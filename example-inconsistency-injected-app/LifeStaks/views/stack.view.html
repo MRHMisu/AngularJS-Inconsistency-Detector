@@ -1,0 +1,25 @@
+<div>
+    <div class="row">
+        <div class="span10">
+            <h1>{{vm.deck.title}}</h1>
+        </div>
+        <div class="span10">
+            <p><img ng-src="{{vm.convertCanvasToImage()}}"/></p>
+
+        </div>
+        <div class="span2">
+            <p><a ng-click="vm.renderStack()" class="btn" title="Shuffle colors"><i class="icon-refresh"></i></a></p>
+            <p><a href="#/editStack/{{vm.urlEncode(vm.deck)}}" title="Edit/Create new stack" class="btn"><i
+                    class="icon-pencil"></i></a></p>
+        </div>
+        <div class="span12">
+            <div class="permanent">
+                <hr/>
+                <label for="permanentUrl">Permanent URL for this stack</label>
+                <input type="text" id="permanentUrl" rows="8" class="span10"
+                       value="http://lifestacks.dev/#/stack/{{vm.urlEncode(vm.deck)}}"/>
+            </div>
+        </div>
+    </div>
+
+</div>
