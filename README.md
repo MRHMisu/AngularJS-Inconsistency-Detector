@@ -30,7 +30,7 @@ FANTASIA: An Automatic Inconsistency Identification and Scaffolding Tool for Ang
 `npm install fantasia-inconsistency-detector -g`
 
 
-### How to Use?
+### How to Use FANTASIA?
 
 [![FANTASIA USER MANUAL](https://img.youtube.com/vi/ksqxrX9-SfI/0.jpg)](https://www.youtube.com/watch?v=ksqxrX9-SfI)
 

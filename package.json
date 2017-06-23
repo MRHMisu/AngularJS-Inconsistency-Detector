@@ -1,6 +1,6 @@
 {
   "name": "fantasia-inconsistency-detector",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "FANTASIA: An Automatic Inconsistency Identification and Scaffolding Tool for AngularJS 1.x Mvc Applications",
   "main": "index.js",
   "dependencies": {
