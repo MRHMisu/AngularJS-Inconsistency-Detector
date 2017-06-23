@@ -17,10 +17,10 @@ FANTASIA: An Automatic Inconsistency Identification and Scaffolding Tool for Ang
 
 ## Features
 
-*1.`Find inconsistency in AngularJS MVC applications by ruuning the command find-incos in application's base directory`
-*2.`Scafolding AngularJS MVC application by running the command ng-create-app {app-name}`
-*3.`Scafolding AngularJS modules like controller, views, services etc by running the command ng-module -(option) {module-name}`
-*4. `For help run the command ng-module --h or ng-module --help`
+1.Find inconsistency in AngularJS MVC applications by ruuning the command find-incos in application's base directory
+2.Scafolding AngularJS MVC application by running the command ng-create-app {app-name}
+3.Scafolding AngularJS modules like controller, views, services etc by running the command ng-module -(option) {module-name}
+4.For help run the command ng-module --h or ng-module --help
 
 ## Install It globally 
 
