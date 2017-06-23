@@ -32,7 +32,7 @@ FANTASIA: An Automatic Inconsistency Identification and Scaffolding Tool for Ang
 
 ### How to Use?
 
-![FANTASIA User Manual](https://youtu.be/ksqxrX9-SfI)
+[FANTASIA User Manual](https://youtu.be/ksqxrX9-SfI)
 
 ## Dependenciess
 
